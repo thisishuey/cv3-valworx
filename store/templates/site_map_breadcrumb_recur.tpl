@@ -1,0 +1,1 @@
+{if $categories.$cat_id.all_parents.0 != ''}{include file="site_map_breadcrumb_recur.tpl" cat_id=$categories.$cat_id.all_parents.0}{/if}&nbsp;»&nbsp;<a href="/{$prod_display_type}/{if $categories.$cat_id.url_name != ''}{$categories.$cat_id.url_name}{else}{$cat_id}{/if}">{$categories.$cat_id.name|replace:"&":"&amp;"}</a>

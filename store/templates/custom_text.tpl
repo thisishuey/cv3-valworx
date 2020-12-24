@@ -1,0 +1,4 @@
+<div class="form-group {if $valid.return and $field.req == 'y' and ((isset($form_error_data.$prod_id) and $form_error_data.$prod_id.$fieldname == '') || (empty($form_error_data) && $valid.$fieldname == ''))} has-error{/if}">
+    <label for="{$fieldname}">{if $field.req == 'y'}<span class="req">*</span> {/if}{$field.label}:</label>
+    <input type="text" name="{$fieldname}" class="formtext form-control" value="{if $valid.return}{if isset($form_error_data.$prod_id) && $form_error_data.$prod_id.$fieldname != ''}{$form_error_data.$prod_id.$fieldname}{elseif empty($form_error_data)}{$valid.$fieldname|stripslashes}{/if}{else}{$field.default}{/if}" size="{$field.size}" maxlength="{$field.maxlength}">
+</div>
