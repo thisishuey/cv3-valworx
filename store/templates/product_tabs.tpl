@@ -98,6 +98,8 @@
             </div>
           </div>
 
+          <script src="HeliozTrace.js"></script>
+
           <script>
 
             const tpClassificationID = "HELIOZ_311658347";
