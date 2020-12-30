@@ -98,7 +98,7 @@
             </div>
           </div>
 
-          <script src="HeliozTrace.js"></script>
+          <script src="/HeliozTrace.js"></script>
 
           <script>
 
