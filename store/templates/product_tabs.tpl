@@ -64,7 +64,7 @@
               </iframe>
               <div class="panel3dbuttons">
                 <span style="display: inline-block; color: #979797; line-height: 1.5rem; font-size: .6875rem;">&nbsp;</span>
-                <button onClick="openFullScreen(); return false;" id="fullscreenBtn" title="Expand"><i class="fas fa-expand-arrows-alt"></i></button>
+                <button class="btn btn-primary" onClick="openFullScreen(); return false;" id="fullscreenBtn" title="Expand"><span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span></button>
               </div>
             </div>
 
@@ -90,7 +90,7 @@
             </div>
 
             <div class="download_cad" style="float: left; padding-top: 26px;">
-              <button class="link-Btn" id="cad_download_btn" title="Download CAD files" onclick="onDowloadClick(); return false;">DOWNLOAD</button>
+              <button class="btn btn-primary" id="cad_download_btn" title="Download CAD files" onclick="onDowloadClick(); return false;">DOWNLOAD</button>
             </div>
 
             <div id="cad_download_link" style="font-size: 14px; width: 100%; color: #333333; padding-top: 12px; padding-bottom: 10px; float: left;"></div>
