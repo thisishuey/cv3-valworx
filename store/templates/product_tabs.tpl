@@ -97,6 +97,7 @@
 
           </div>
         </div>
+        <div class="clearfix"></div>
 
         <script src="/HeliozTrace.js"></script>
 
