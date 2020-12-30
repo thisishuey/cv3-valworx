@@ -102,7 +102,7 @@
 
             const tpClassificationID = "HELIOZ_311658347";
             const tpPartID = "90-30092020-032011";
-            const userEmail = "test@test.com",
+            const userEmail = "test@test.com";
             let isCadDownloadInProgress = false;
 
             {literal}
