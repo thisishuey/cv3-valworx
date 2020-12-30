@@ -1,187 +1,186 @@
-{***PRODUCT TABS***}
-{*<!-- {array_debug var=$product} -->*}
-
 <div class="clearfix"></div>
 <div id="product_tabs">
-    <!-- Nav tabs -->
-    <ul class="nav nav-tabs" role="tablist">
-      {if $product.prod_description}<li id='section1_tab' role="presentation" class='active'><a href="#section1_tab_{$product.prod_id}" role="tab" data-toggle="tab">Description</a></li>{/if}
-        {if $product.cust_5}<li id='section2_tab' role="presentation"><a href="#section2_tab_{$product.prod_id}" role="tab" data-toggle="tab">Specifications</a></li>{/if}
-        {if $product.additional_prods|@count > 0 && $product.cust_17 !=''}<li id='section3_tab' role="presentation"><a href="#section3_tab_{$product.prod_id}" role="tab" data-toggle="tab">Accessories</a></li>{/if}
-        {if $product.cust_6}<li id='section4_tab' role="presentation"><a href="#section4_tab_{$product.prod_id}" role="tab" data-toggle="tab">Data Sheets</a></li>{/if}
-        {if $product.cust_7}<li id='section5_tab' role="presentation"><a href="#section5_tab_{$product.prod_id}" role="tab" data-toggle="tab">CAD</a></li>{/if}
-        {if $product.cust_8}<li id='section6_tab' role="presentation"><a href="#section6_tab_{$product.prod_id}" role="tab" data-toggle="tab">Video</a></li>{/if}
-        {if $product.additional_prods|@count > 0 && $product.cust_12 !=''}<li id='section7_tab' role="presentation"><a href="#section7_tab_{$product.prod_id}" role="tab" data-toggle="tab">Repair Parts</a></li>{/if}
-    </ul>
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    {if $product.prod_description}<li id='section1_tab' role="presentation" class='active'><a href="#section1_tab_{$product.prod_id}" role="tab" data-toggle="tab">Description</a></li>{/if}
+      {if $product.cust_5}<li id='section2_tab' role="presentation"><a href="#section2_tab_{$product.prod_id}" role="tab" data-toggle="tab">Specifications</a></li>{/if}
+      {if $product.additional_prods|@count > 0 && $product.cust_17 !=''}<li id='section3_tab' role="presentation"><a href="#section3_tab_{$product.prod_id}" role="tab" data-toggle="tab">Accessories</a></li>{/if}
+      {if $product.cust_6}<li id='section4_tab' role="presentation"><a href="#section4_tab_{$product.prod_id}" role="tab" data-toggle="tab">Data Sheets</a></li>{/if}
+      {if $product.cust_7}<li id='section5_tab' role="presentation"><a href="#section5_tab_{$product.prod_id}" role="tab" data-toggle="tab">CAD</a></li>{/if}
+      {if $product.cust_8}<li id='section6_tab' role="presentation"><a href="#section6_tab_{$product.prod_id}" role="tab" data-toggle="tab">Video</a></li>{/if}
+      {if $product.additional_prods|@count > 0 && $product.cust_12 !=''}<li id='section7_tab' role="presentation"><a href="#section7_tab_{$product.prod_id}" role="tab" data-toggle="tab">Repair Parts</a></li>{/if}
+  </ul>
 
-    <!-- Tab panes -->
-    <div class="tab-content tab_data_container">
-        <div role="tabpanel" class="tab-pane active" id="section1_tab_{$product.prod_id}">
-            {if $product.prod_description}{$product.prod_description}{/if}
-        </div>
-        {if $product.cust_5}
-        <div role="tabpanel" class="tab-pane" id="section2_tab_{$product.prod_id}">
-          {assign var=customfive value="<BR><BR>"|explode:$product.cust_5}
-            <div id="spectable">
-            {assign var='rowcounter' value="oddrow"}
-            {foreach from=$customfive key=key item=fiveinfo}
-             <div class="{$rowcounter} row">
+  <!-- Tab panes -->
+  <div class="tab-content tab_data_container">
+    <div role="tabpanel" class="tab-pane active" id="section1_tab_{$product.prod_id}">
+      {if $product.prod_description}{$product.prod_description}{/if}
+    </div>
+    {if $product.cust_5}
+      <div role="tabpanel" class="tab-pane" id="section2_tab_{$product.prod_id}">
+        {assign var=customfive value="<BR><BR>"|explode:$product.cust_5}
+        <div id="spectable">
+          {assign var='rowcounter' value="oddrow"}
+          {foreach from=$customfive key=key item=fiveinfo}
+            <div class="{$rowcounter} row">
               <div class="col-xs-4 col-sm-3"><strong>{$fiveinfo|replace:"|":"</div><div class='col-xs-8 col-sm-9'></strong>"}</div>
-             </div>
+            </div>
             {if $rowcounter == "oddrow"}
-             {assign var=rowcounter value="evenrow"}
+              {assign var=rowcounter value="evenrow"}
             {else}
-             {assign var=rowcounter value="oddrow"}
+              {assign var=rowcounter value="oddrow"}
             {/if}
-            {/foreach}
-            </div>
+          {/foreach}
         </div>
-      {/if}
-      {if $product.additional_prods|@count > 0 && $product.cust_17 !=''}
-        <div role="tabpanel" class="tab-pane" id="section3_tab_{$product.prod_id}">
-           {include file="display_product_group_additional.tpl" label="Additional Products" products=$product.additional_prods max=10 fromoption="additionalproducts" mainpId=$product.prod_id}
-        </div>
-      {/if}
-      {if $product.cust_6}
-        <div role="tabpanel" class="tab-pane" id="section4_tab_{$product.prod_id}">
-            {$product.cust_6}
-        </div>
-      {/if}
-      {if $product.cust_7}
-        <div role="tabpanel" class="tab-pane" id="section5_tab_{$product.prod_id}">
-          {$product.cust_7}
+      </div>
+    {/if}
+    {if $product.additional_prods|@count > 0 && $product.cust_17 !=''}
+      <div role="tabpanel" class="tab-pane" id="section3_tab_{$product.prod_id}">
+       {include file="display_product_group_additional.tpl" label="Additional Products" products=$product.additional_prods max=10 fromoption="additionalproducts" mainpId=$product.prod_id}
+      </div>
+    {/if}
+    {if $product.cust_6}
+      <div role="tabpanel" class="tab-pane" id="section4_tab_{$product.prod_id}">
+        {$product.cust_6}
+      </div>
+    {/if}
+    {if $product.cust_7}
+      <div role="tabpanel" class="tab-pane" id="section5_tab_{$product.prod_id}">
+        {$product.cust_7}
 
-          <div style="float: left; width: 100%; padding-top: 0px;">
-            <div class="catalog-left" style="float: left; width: 55%;">
+        {assign var="tpClassificationID" value="HELIOZ_311658347"}
+        {assign var="tpPartID" value="90-30092020-032011"}
 
-              <ol class="flex-control" style="display: block;" id="flex">
-                <li id="image" onclick="changeFlex(this);" title="Image View"><a class=""><i class="fas fa-image"></i></a></li>
-                <li id="3d" onclick="changeFlex(this);" title="3D View"><a class="flex-active"><i class="fas fa-cube"></i></a></li>
-              </ol>
+        <div style="float: left; width: 100%; padding-top: 0px;">
+          <div class="catalog-left" style="float: left; width: 55%;">
 
-              <div id="panel_3d" style="height: 350px;">
-                <iframe id="ifCad3d" style="position: relative;" scrolling="no" frameborder="0">
-                </iframe>
-                <div class="panel3dbuttons">
-                  <span style="display: inline-block; color: #979797; line-height: 1.5rem; font-size: .6875rem;">&nbsp;</span>
-                  <button onClick="openFullScreen(); return false;" id="fullscreenBtn" title="Expand"><i class="fas fa-expand-arrows-alt"></i></button>
-                </div>
+            <ol class="flex-control" style="display: block;" id="flex">
+              <li id="image" onclick="changeFlex(this);" title="Image View"><a class=""><i class="fas fa-image"></i></a></li>
+              <li id="3d" onclick="changeFlex(this);" title="3D View"><a class="flex-active"><i class="fas fa-cube"></i></a></li>
+            </ol>
+
+            <div id="panel_3d" style="height: 350px;">
+              <iframe id="ifCad3d" style="position: relative;" src="https://www.traceparts.com/els/helioz/en/api/viewer/3d?SupplierID={$tpClassificationID}&DisplayLogo=false&Product={$tpPartID}" scrolling="no" frameborder="0">
+              </iframe>
+              <div class="panel3dbuttons">
+                <span style="display: inline-block; color: #979797; line-height: 1.5rem; font-size: .6875rem;">&nbsp;</span>
+                <button onClick="openFullScreen(); return false;" id="fullscreenBtn" title="Expand"><i class="fas fa-expand-arrows-alt"></i></button>
               </div>
-
-              <div id="panel_image" style="display: none; height: 350px;">
-                <div class="model-productImgBox" style="text-align: center;">
-                  <img src="${img_prefix}/main/product/image.jpg" style="width: 80%; padding-top: 0px; text-align: center;" id="valworx_image">
-                </div>
-              </div>
-
             </div>
 
-            <br>
-
-            <div id="cad_container" style="display: block; padding-top: 0; float: left; width: 45%;">
-
-              <h5 class="titleDownload" style="font-size: 18px; font-weight: bold; color: #333333;">Download CAD files</h5>
-
-              <div class="CADformat" style="float: left; font-size: 15px; color: #747474; padding-top: 5px;">
-                <span style="color: #333333;">CAD Format:</span>
-                <select id="cad_format" style="color: #333333;" style="height: 37px; vertical-align: baseline; width: 60%;">
-                  <i class="fas fa-caret-down"></i>
-                </select>
+            <div id="panel_image" style="display: none; height: 350px;">
+              <div class="model-productImgBox" style="text-align: center;">
+                <img src="${img_prefix}/main/product/image.jpg" style="width: 80%; padding-top: 0px; text-align: center;" id="valworx_image">
               </div>
-
-              <div class="download_cad" style="float: left; padding-top: 26px;">
-                <button class="link-Btn" id="cad_download_btn" title="Download CAD files" onclick="onDowloadClick(); return false;">DOWNLOAD</button>
-              </div>
-
-              <div id="cad_download_link" style="font-size: 14px; width: 100%; color: #333333; padding-top: 12px; padding-bottom: 10px; float: left;"></div>
-
             </div>
+
           </div>
 
-          <script src="/HeliozTrace.js"></script>
+          <br>
 
-          <script>
+          <div id="cad_container" style="display: block; padding-top: 0; float: left; width: 45%;">
 
-            const tpClassificationID = "HELIOZ_311658347";
-            const tpPartID = "90-30092020-032011";
-            const userEmail = "test@test.com";
-            let isCadDownloadInProgress = false;
+            <h5 class="titleDownload" style="font-size: 18px; font-weight: bold; color: #333333;">Download CAD files</h5>
 
-            {literal}
+            <div class="CADformat" style="float: left; font-size: 15px; color: #747474; padding-top: 5px;">
+              <span style="color: #333333;">CAD Format:</span>
+              <select id="cad_format" style="color: #333333;" style="height: 37px; vertical-align: baseline; width: 60%;">
+                <i class="fas fa-caret-down"></i>
+              </select>
+            </div>
 
-              const $ = jQuery;
+            <div class="download_cad" style="float: left; padding-top: 26px;">
+              <button class="link-Btn" id="cad_download_btn" title="Download CAD files" onclick="onDowloadClick(); return false;">DOWNLOAD</button>
+            </div>
 
-              function onDowloadClick () {
-                if (isCadDownloadInProgress) {
-                  return false;
-                }
+            <div id="cad_download_link" style="font-size: 14px; width: 100%; color: #333333; padding-top: 12px; padding-bottom: 10px; float: left;"></div>
 
-                isCadDownloadInProgress = true;
-                const select = document.getElementById("cad_format");
-                const CADFormatID = select.value;
+          </div>
+        </div>
 
-                document.getElementById("cad_download_link").innerHTML = "Preparing the file for download...";
-                heliozTraceDownloadCADPath({
-                  ClassificationID: tpClassificationID,
-                  PartID: tpPartID,
-                  UserEmail: userEmail,
-                  CADFormatID: CADFormatID,
-                  Version: 2,
-                  SaveAssemblyAsPart: 1
-                },
-                (data) => {
-                  isCadDownloadInProgress = false;
-                  document.getElementById("cad_download_link").innerHTML = `Your file is ready for download. Please click <a href="${data.filesPath[0].path}" download style="text-decoration:underline">here</a>.`;
-                });
+        <script src="/HeliozTrace.js"></script>
+
+        <script>
+
+          const tpClassificationID = "{$tpClassificationID}";
+          const tpPartID = "{$tpPartID}";
+          const userEmail = "test@test.com";
+          let isCadDownloadInProgress = false;
+
+          {literal}
+
+            const $ = jQuery;
+
+            function onDowloadClick () {
+              if (isCadDownloadInProgress) {
+                return false;
               }
 
-              function changeFlex (event) {
-                $("[id^=panel_]").hide();
-                $(`#panel_${event.id}`).show();
-                $(".flex-control a").removeClass("flex-active");
-                $(event).find("a").addClass("flex-active");
-              }
+              isCadDownloadInProgress = true;
+              const select = document.getElementById("cad_format");
+              const CADFormatID = select.value;
 
-              $(() => {
-                heliozTraceDownloadOptions({
-                  ClassificationID: tpClassificationID,
-                  PartID: tpPartID
-                }, document.getElementById("cad_format"));
-                document.getElementById("section5_tab").addEventListener("click", () => {
-                  document.getElementById("ifCad3d").src = `https://www.traceparts.com/els/helioz/en/api/viewer/3d?SupplierID=${tpClassificationID}&DisplayLogo=false&Product=${tpPartID}`;
-                })
+              document.getElementById("cad_download_link").innerHTML = "Preparing the file for download...";
+              heliozTraceDownloadCADPath({
+                ClassificationID: tpClassificationID,
+                PartID: tpPartID,
+                UserEmail: userEmail,
+                CADFormatID: CADFormatID,
+                Version: 2,
+                SaveAssemblyAsPart: 1
+              },
+              (data) => {
+                isCadDownloadInProgress = false;
+                document.getElementById("cad_download_link").innerHTML = `Your file is ready for download. Please click <a href="${data.filesPath[0].path}" download style="text-decoration:underline">here</a>.`;
               });
+            }
 
-              function openFullScreen() {
-                const element = document.getElementById("ifCad3d");
-                if (element.requestFullscreen) {
-                  element.requestFullscreen();
-                } else if (element.mozRequestFullScreen) {
-                  element.mozRequestFullScreen();
-                } else if (element.webkitRequestFullscreen) {
-                  element.webkitRequestFullscreen();
-                } else if (element.msRequestFullscreen) {
-                  element.msRequestFullscreen();
-                }
+            function changeFlex (event) {
+              $("[id^=panel_]").hide();
+              $(`#panel_${event.id}`).show();
+              $(".flex-control a").removeClass("flex-active");
+              $(event).find("a").addClass("flex-active");
+            }
+
+            $(() => {
+              heliozTraceDownloadOptions({
+                ClassificationID: tpClassificationID,
+                PartID: tpPartID
+              }, document.getElementById("cad_format"));
+              document.getElementById("section5_tab").addEventListener("click", () => {
+                // document.getElementById("ifCad3d").src = `https://www.traceparts.com/els/helioz/en/api/viewer/3d?SupplierID=${tpClassificationID}&DisplayLogo=false&Product=${tpPartID}`;
+              })
+            });
+
+            function openFullScreen() {
+              const element = document.getElementById("ifCad3d");
+              if (element.requestFullscreen) {
+                element.requestFullscreen();
+              } else if (element.mozRequestFullScreen) {
+                element.mozRequestFullScreen();
+              } else if (element.webkitRequestFullscreen) {
+                element.webkitRequestFullscreen();
+              } else if (element.msRequestFullscreen) {
+                element.msRequestFullscreen();
               }
+            }
 
-            {/literal}
+          {/literal}
 
-          </script>
-        </div>
-      {/if}
-      {if $product.cust_8}
-        <div role="tabpanel" class="tab-pane video" id="section6_tab_{$product.prod_id}">
-            <div id="video">{$product.cust_8}</div>
-        </div>
-      {/if}
-      {if $product.additional_prods|@count > 0 && $product.cust_12 !=''}
-        <div role="tabpanel" class="tab-pane" id="section7_tab_{$product.prod_id}">
-            {include file="display_product_group_additional.tpl" label="Related Additional Products" products=$product.additional_prods max=10 fromoption="additionalproductsforrepairparts" mainpId=$product.prod_id}
-
-        </div>
-      {/if}
-    </div>
+        </script>
+      </div>
+    {/if}
+    {if $product.cust_8}
+      <div role="tabpanel" class="tab-pane video" id="section6_tab_{$product.prod_id}">
+        <div id="video">{$product.cust_8}</div>
+      </div>
+    {/if}
+    {if $product.additional_prods|@count > 0 && $product.cust_12 !=''}
+      <div role="tabpanel" class="tab-pane" id="section7_tab_{$product.prod_id}">
+        {include file="display_product_group_additional.tpl" label="Related Additional Products" products=$product.additional_prods max=10 fromoption="additionalproductsforrepairparts" mainpId=$product.prod_id}
+      </div>
+    {/if}
+  </div>
 
 </div>
 {*** TAB JS MOVED TO extra-js.tpl ***}
