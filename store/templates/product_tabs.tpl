@@ -54,10 +54,10 @@
         <div style="float: left; width: 100%; padding-top: 0px;">
           <div class="catalog-left" style="float: left; width: 55%;">
 
-            <ol class="flex-control" style="display: block;" id="flex">
-              <li id="image" onclick="changeFlex(this);" title="Image View"><a class=""><i class="fas fa-image"></i></a></li>
-              <li id="3d" onclick="changeFlex(this);" title="3D View"><a class="flex-active"><i class="fas fa-cube"></i></a></li>
-            </ol>
+            <div class="btn-group" role="group" aria-label="..." id="tpView">
+              <a id="image" onclick="changeView(this);" title="Image View" class="btn btn-default"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span></a>
+              <a id="3d" onclick="changeView(this);" title="3D View" class="btn btn-primary"><span class="glyphicon glyphicon-move" aria-hidden="true"></span></a>
+            </div>
 
             <div id="panel_3d" style="height: 350px;">
               <iframe id="ifCad3d" style="position: relative;" src="https://www.traceparts.com/els/helioz/en/api/viewer/3d?SupplierID={$tpClassificationID}&DisplayLogo=false&Product={$tpPartID}" scrolling="no" frameborder="0">
@@ -135,11 +135,11 @@
               });
             }
 
-            function changeFlex (event) {
+            function changeView (event) {
               $("[id^=panel_]").hide();
               $(`#panel_${event.id}`).show();
-              $(".flex-control a").removeClass("flex-active");
-              $(event).find("a").addClass("flex-active");
+              $("#tpView .btn-primary").removeClass("btn-primary").addClass("btn-default");
+              $(event).removeClass("btn-default").addClass("btn-primary");
             }
 
             $(() => {
