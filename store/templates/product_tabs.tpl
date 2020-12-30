@@ -148,7 +148,7 @@
                 PartID: tpPartID
               }, document.getElementById("cad_format"));
               document.getElementById("section5_tab").addEventListener("click", () => {
-                // document.getElementById("ifCad3d").src = `https://www.traceparts.com/els/helioz/en/api/viewer/3d?SupplierID=${tpClassificationID}&DisplayLogo=false&Product=${tpPartID}`;
+                document.getElementById("ifCad3d").src = `https://www.traceparts.com/els/helioz/en/api/viewer/3d?SupplierID=${tpClassificationID}&DisplayLogo=false&Product=${tpPartID}`;
               })
             });
 
