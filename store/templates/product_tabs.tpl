@@ -70,7 +70,7 @@
 
               <div id="panel_image" style="display: none; height: 350px;">
                 <div class="model-oductImgBox" style="text-align: center;">
-                  <img src="${img_prefix}main/image/url.jpg" style="width: 80%; adding-top: 0px; text-align: center;" id="valworx_image">
+                  <img src="${img_prefix}/main/image/url.jpg" style="width: 80%; adding-top: 0px; text-align: center;" id="valworx_image">
                 </div>
               </div>
 
