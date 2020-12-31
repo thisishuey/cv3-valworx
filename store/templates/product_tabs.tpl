@@ -1,4 +1,4 @@
-{assign var="tpClassificationID" value="HELIOZ_311658347"}
+{assign var="tpClassificationID" value="valworx"}
 {assign var="tpPartID" value="90-30092020-032011"}
 {assign var="tpPartNumber" value="551802"}
 
