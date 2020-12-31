@@ -1,5 +1,4 @@
 {assign var="tpClassificationID" value="VALWORX_1588279872"}
-{assign var="tpPartID" value="90-30092020-032011"}
 {assign var="tpPartNumber" value="551802"}
 
 <div class="clearfix"></div>
@@ -10,7 +9,7 @@
       {if $product.cust_5}<li id='section2_tab' role="presentation"><a href="#section2_tab_{$product.prod_id}" role="tab" data-toggle="tab">Specifications</a></li>{/if}
       {if $product.additional_prods|@count > 0 && $product.cust_17 !=''}<li id='section3_tab' role="presentation"><a href="#section3_tab_{$product.prod_id}" role="tab" data-toggle="tab">Accessories</a></li>{/if}
       {if $product.cust_6}<li id='section4_tab' role="presentation"><a href="#section4_tab_{$product.prod_id}" role="tab" data-toggle="tab">Data Sheets</a></li>{/if}
-      {if $product.cust_7}<li id='section5_tab' role="presentation"><a href="#section5_tab_{$product.prod_id}" role="tab" data-toggle="tab">{if $tpPartID == ""}CAD{else}3D CAD{/if}</a></li>{/if}
+      {if $product.cust_7}<li id='section5_tab' role="presentation"><a href="#section5_tab_{$product.prod_id}" role="tab" data-toggle="tab">{if $tpPartNumber == ""}CAD{else}3D CAD{/if}</a></li>{/if}
       {if $product.cust_8}<li id='section6_tab' role="presentation"><a href="#section6_tab_{$product.prod_id}" role="tab" data-toggle="tab">Video</a></li>{/if}
       {if $product.additional_prods|@count > 0 && $product.cust_12 !=''}<li id='section7_tab' role="presentation"><a href="#section7_tab_{$product.prod_id}" role="tab" data-toggle="tab">Repair Parts</a></li>{/if}
   </ul>
@@ -50,7 +49,7 @@
     {/if}
     {if $product.cust_7}
       <div role="tabpanel" class="tab-pane" id="section5_tab_{$product.prod_id}">
-        {if $tpPartID == ""}
+        {if $tpPartNumber == ""}
 
           {$product.cust_7}
 
@@ -65,7 +64,7 @@
               </div>
 
               <div id="panel_3d" style="height: 350px;">
-                <iframe id="ifCad3d" style="position: relative; width: 100%; min-height: 300px;" src="https://www.traceparts.com/els/helioz/en/api/viewer/3d?SupplierID={$tpClassificationID}&DisplayLogo=false&Product={$tpPartID}" scrolling="no" frameborder="0">
+                <iframe id="ifCad3d" style="position: relative; width: 100%; min-height: 300px;" src="https://www.traceparts.com/els/helioz/en/api/viewer/3d?SupplierID={$tpClassificationID}&DisplayLogo=false&PartNumber={$tpPartNumber}" scrolling="no" frameborder="0">
                 </iframe>
                 <div class="panel3dbuttons">
                   <span style="display: inline-block; color: #979797; line-height: 1.5rem; font-size: .6875rem;">&nbsp;</span>
@@ -109,7 +108,6 @@
         <script>
 
           const tpClassificationID = "{$tpClassificationID}";
-          const tpPartID = "{$tpPartID}";
           const tpPartNumber = "{$tpPartNumber}";
           const userEmail = "test@test.com";
           let isCadDownloadInProgress = false;
@@ -130,7 +128,7 @@
               document.getElementById("cad_download_link").innerHTML = "Preparing the file for download...";
               heliozTraceDownloadCADPath({
                 ClassificationID: tpClassificationID,
-                PartID: tpPartID,
+                PartNumber: tpPartNumber,
                 UserEmail: userEmail,
                 CADFormatID: CADFormatID,
                 Version: 2,
@@ -155,7 +153,7 @@
                 PartNumber: tpPartNumber
               }, document.getElementById("cad_format"));
               document.getElementById("section5_tab").addEventListener("click", () => {
-                document.getElementById("ifCad3d").src = `https://www.traceparts.com/els/helioz/en/api/viewer/3d?SupplierID=${tpClassificationID}&DisplayLogo=false&Product=${tpPartID}`;
+                document.getElementById("ifCad3d").src = `https://www.traceparts.com/els/helioz/en/api/viewer/3d?SupplierID=${tpClassificationID}&DisplayLogo=false&PartNumber=${tpPartNumber}`;
               })
             });
 
