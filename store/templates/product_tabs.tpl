@@ -134,7 +134,7 @@
                 UserEmail: userEmail,
                 CADFormatID: CADFormatID,
                 Version: 2,
-                SaveAssemblyAsPart: 1
+                Language: "en"
               },
               (data) => {
                 isCadDownloadInProgress = false;
