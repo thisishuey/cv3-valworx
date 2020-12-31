@@ -60,7 +60,7 @@
             </div>
 
             <div id="panel_3d" style="height: 350px;">
-              <iframe id="ifCad3d" style="position: relative;" src="https://www.traceparts.com/els/helioz/en/api/viewer/3d?SupplierID={$tpClassificationID}&DisplayLogo=false&Product={$tpPartID}" scrolling="no" frameborder="0">
+              <iframe id="ifCad3d" style="position: relative; width: 100%; min-height: 300px;" src="https://www.traceparts.com/els/helioz/en/api/viewer/3d?SupplierID={$tpClassificationID}&DisplayLogo=false&Product={$tpPartID}" scrolling="no" frameborder="0">
               </iframe>
               <div class="panel3dbuttons">
                 <span style="display: inline-block; color: #979797; line-height: 1.5rem; font-size: .6875rem;">&nbsp;</span>
