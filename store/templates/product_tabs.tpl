@@ -119,22 +119,26 @@
                 <div class="modal-body">
                   <form>
                     <div class="form-group">
-                      <label for="tpFirstName">First Name</label>
-                      <input type="text" class="form-control" id="tpFirstName" placeholder="First Name">
+                      <label for="tpFirstName"><span class="req">*</span> First Name</label>
+                      <input type="text" class="form-control" id="tpFirstName" required>
                     </div>
                     <div class="form-group">
-                      <label for="tpLastName">Last Name</label>
-                      <input type="text" class="form-control" id="tpLastName" placeholder="Last Name">
+                      <label for="tpLastName"><span class="req">*</span> Last Name</label>
+                      <input type="text" class="form-control" id="tpLastName" required>
                     </div>
                     <div class="form-group">
-                      <label for="tpEmailAddress">Email Address</label>
-                      <input type="email" class="form-control" id="tpEmailAddress" placeholder="Email Address">
+                      <label for="tpEmailAddress"><span class="req">*</span> Email Address</label>
+                      <input type="email" class="form-control" id="tpEmailAddress" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="tpCompany"><span class="req">*</span> Company</label>
+                      <input type="text" class="form-control" id="tpCompany" required>
                     </div>
                   </form>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary" onclick="onDownloadFormSubmit(); return false;">Save changes</button>
+                  <button type="button" class="btn btn-primary" onclick="onDownloadFormSubmit();">Save changes</button>
                 </div>
               </div>
             </div>
@@ -158,14 +162,11 @@
             const $ = jQuery;
 
             function onDownloadClick () {
-              if (isCadDownloadInProgress) {
-                return false;
-              }
 
               const select = document.getElementById("cad_format");
               const CADFormatID = select.value;
 
-              if (CADFormatID === "") {
+              if (isCadDownloadInProgress || CADFormatID === "") {
                 return false;
               }
 
@@ -174,9 +175,35 @@
             }
 
             function onDownloadFormSubmit () {
-              if (isCadDownloadInProgress) {
+              let formComplete = true;
+
+              $("#cad_modal").find(".form-group").removeClass("has-error");
+
+              if ($("#tpFirstName").val() === "") {
+                $("#tpFirstName").closest(".form-group").addClass("has-error");
+                formComplete = false;
+              }
+
+              if ($("#tpLastName").val() === "") {
+                $("#tpLastName").closest(".form-group").addClass("has-error");
+                formComplete = false;
+              }
+
+              if ($("#tpEmailAddress").val() === "") {
+                $("#tpEmailAddress").closest(".form-group").addClass("has-error");
+                formComplete = false;
+              }
+
+              if ($("#tpCompany").val() === "") {
+                $("#tpCompany").closest(".form-group").addClass("has-error");
+                formComplete = false;
+              }
+
+              if (isCadDownloadInProgress || !formComplete) {
                 return false;
               }
+
+              $("#cad_modal").modal("hide");
 
               isCadDownloadInProgress = true;
               const select = document.getElementById("cad_format");
