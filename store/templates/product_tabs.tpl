@@ -1,5 +1,6 @@
 {assign var="tpClassificationID" value="HELIOZ_311658347"}
 {assign var="tpPartID" value="90-30092020-032011"}
+{assign var="tpPartNumber" value="551802"}
 
 <div class="clearfix"></div>
 <div id="product_tabs">
@@ -150,7 +151,7 @@
             $(() => {
               heliozTraceDownloadOptions({
                 ClassificationID: tpClassificationID,
-                PartNumber: tpPartID
+                PartNumber: tpPartNumber
               }, document.getElementById("cad_format"));
               document.getElementById("section5_tab").addEventListener("click", () => {
                 document.getElementById("ifCad3d").src = `https://www.traceparts.com/els/helioz/en/api/viewer/3d?SupplierID=${tpClassificationID}&DisplayLogo=false&Product=${tpPartID}`;
