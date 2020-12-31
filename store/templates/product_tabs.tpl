@@ -64,7 +64,7 @@
               </iframe>
               <div class="panel3dbuttons">
                 <span style="display: inline-block; color: #979797; line-height: 1.5rem; font-size: .6875rem;">&nbsp;</span>
-                <button class="btn btn-primary" onClick="openFullScreen(); return false;" id="fullscreenBtn" title="Expand"><span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span></button>
+                <button class="btn btn-primary" style="float: right;" onClick="openFullScreen(); return false;" id="fullscreenBtn" title="Expand"><span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span></button>
               </div>
             </div>
 
