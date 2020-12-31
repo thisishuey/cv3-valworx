@@ -84,9 +84,7 @@
 
             <div class="CADformat" style="float: left; font-size: 15px; color: #747474; padding-top: 5px;">
               <div style="color: #333333;">CAD Format:</div>
-              <select id="cad_format" style="color: #333333;" style="height: 37px; vertical-align: baseline; width: 60%;">
-                <i class="fas fa-caret-down"></i>
-              </select>
+              <select id="cad_format" class="form-control"></select>
             </div>
 
             <div class="download_cad" style="float: left; padding-top: 26px;">
