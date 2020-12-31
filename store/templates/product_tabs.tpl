@@ -111,7 +111,7 @@
           const tpClassificationID = "{$tpClassificationID}";
           const tpPartID = "{$tpPartID}";
           const tpPartNumber = "{$tpPartNumber}";
-          const userEmail = "test@test.com";
+          const userEmail = "huey+traceparts@carpetelam.com";
           let isCadDownloadInProgress = false;
 
           {literal}
@@ -134,7 +134,7 @@
                 UserEmail: userEmail,
                 CADFormatID: CADFormatID,
                 Version: 2,
-                Language: "en"
+                SaveAssemblyAsPart: 1
               },
               (data) => {
                 isCadDownloadInProgress = false;
