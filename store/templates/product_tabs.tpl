@@ -1,3 +1,6 @@
+{assign var="tpClassificationID" value="HELIOZ_311658347"}
+{assign var="tpPartID" value="90-30092020-032011"}
+
 <div class="clearfix"></div>
 <div id="product_tabs">
   <!-- Nav tabs -->
@@ -6,7 +9,7 @@
       {if $product.cust_5}<li id='section2_tab' role="presentation"><a href="#section2_tab_{$product.prod_id}" role="tab" data-toggle="tab">Specifications</a></li>{/if}
       {if $product.additional_prods|@count > 0 && $product.cust_17 !=''}<li id='section3_tab' role="presentation"><a href="#section3_tab_{$product.prod_id}" role="tab" data-toggle="tab">Accessories</a></li>{/if}
       {if $product.cust_6}<li id='section4_tab' role="presentation"><a href="#section4_tab_{$product.prod_id}" role="tab" data-toggle="tab">Data Sheets</a></li>{/if}
-      {if $product.cust_7}<li id='section5_tab' role="presentation"><a href="#section5_tab_{$product.prod_id}" role="tab" data-toggle="tab">CAD</a></li>{/if}
+      {if $product.cust_7}<li id='section5_tab' role="presentation"><a href="#section5_tab_{$product.prod_id}" role="tab" data-toggle="tab">{if $tpPartID == ""}CAD{else}3D CAD{/if}</a></li>{/if}
       {if $product.cust_8}<li id='section6_tab' role="presentation"><a href="#section6_tab_{$product.prod_id}" role="tab" data-toggle="tab">Video</a></li>{/if}
       {if $product.additional_prods|@count > 0 && $product.cust_12 !=''}<li id='section7_tab' role="presentation"><a href="#section7_tab_{$product.prod_id}" role="tab" data-toggle="tab">Repair Parts</a></li>{/if}
   </ul>
@@ -46,56 +49,59 @@
     {/if}
     {if $product.cust_7}
       <div role="tabpanel" class="tab-pane" id="section5_tab_{$product.prod_id}">
-        {$product.cust_7}
+        {if $tpPartID == ""}
 
-        {assign var="tpClassificationID" value="HELIOZ_311658347"}
-        {assign var="tpPartID" value="90-30092020-032011"}
+          {$product.cust_7}
 
-        <div style="float: left; width: 100%; padding-top: 0px;">
-          <div class="catalog-left" style="float: left; width: 55%;">
+        {else}
 
-            <div class="btn-group" role="group" aria-label="..." id="tpView">
-              <a id="image" onclick="changeView(this);" title="Image View" class="btn btn-default"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span></a>
-              <a id="3d" onclick="changeView(this);" title="3D View" class="btn btn-primary"><span class="glyphicon glyphicon-move" aria-hidden="true"></span></a>
-            </div>
+          <div style="float: left; width: 100%; padding-top: 0px;">
+            <div class="catalog-left" style="float: left; width: 55%;">
 
-            <div id="panel_3d" style="height: 350px;">
-              <iframe id="ifCad3d" style="position: relative; width: 100%; min-height: 300px;" src="https://www.traceparts.com/els/helioz/en/api/viewer/3d?SupplierID={$tpClassificationID}&DisplayLogo=false&Product={$tpPartID}" scrolling="no" frameborder="0">
-              </iframe>
-              <div class="panel3dbuttons">
-                <span style="display: inline-block; color: #979797; line-height: 1.5rem; font-size: .6875rem;">&nbsp;</span>
-                <button class="btn btn-primary" style="float: right;" onClick="openFullScreen(); return false;" id="fullscreenBtn" title="Expand"><span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span></button>
+              <div class="btn-group" role="group" aria-label="..." id="tpView">
+                <a id="image" onclick="changeView(this);" title="Image View" class="btn btn-default"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span></a>
+                <a id="3d" onclick="changeView(this);" title="3D View" class="btn btn-primary"><span class="glyphicon glyphicon-move" aria-hidden="true"></span></a>
               </div>
-            </div>
 
-            <div id="panel_image" style="display: none; height: 350px;">
-              <div class="model-productImgBox" style="text-align: center;">
-                <img src="${img_prefix}/main/product/image.jpg" style="width: 80%; padding-top: 0px; text-align: center;" id="valworx_image">
+              <div id="panel_3d" style="height: 350px;">
+                <iframe id="ifCad3d" style="position: relative; width: 100%; min-height: 300px;" src="https://www.traceparts.com/els/helioz/en/api/viewer/3d?SupplierID={$tpClassificationID}&DisplayLogo=false&Product={$tpPartID}" scrolling="no" frameborder="0">
+                </iframe>
+                <div class="panel3dbuttons">
+                  <span style="display: inline-block; color: #979797; line-height: 1.5rem; font-size: .6875rem;">&nbsp;</span>
+                  <button class="btn btn-primary" style="float: right;" onClick="openFullScreen(); return false;" id="fullscreenBtn" title="Expand"><span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span></button>
+                </div>
               </div>
+
+              <div id="panel_image" style="display: none; height: 350px;">
+                <div class="model-productImgBox" style="text-align: center;">
+                  <img src="${img_prefix}/main/product/image.jpg" style="width: 80%; padding-top: 0px; text-align: center;" id="valworx_image">
+                </div>
+              </div>
+
             </div>
 
+            <br>
+
+            <div id="cad_container" style="display: block; padding-top: 0; float: left; width: 45%;">
+
+              <h5 class="titleDownload" style="font-size: 18px; font-weight: bold; color: #333333;">Download CAD files</h5>
+
+              <div class="CADformat" style="float: left; font-size: 15px; color: #747474; padding-top: 5px; width: 60%;">
+                <div style="color: #333333;">CAD Format:</div>
+                <select id="cad_format" class="form-control" style="width: 96%;"></select>
+              </div>
+
+              <div class="download_cad" style="float: left; padding-top: 26px;">
+                <button class="btn btn-primary" id="cad_download_btn" title="Download CAD files" onclick="onDowloadClick(); return false;">DOWNLOAD</button>
+              </div>
+
+              <div id="cad_download_link" style="font-size: 14px; width: 100%; color: #333333; padding-top: 12px; padding-bottom: 10px; float: left;"></div>
+
+            </div>
           </div>
+          <div class="clearfix"></div>
 
-          <br>
-
-          <div id="cad_container" style="display: block; padding-top: 0; float: left; width: 45%;">
-
-            <h5 class="titleDownload" style="font-size: 18px; font-weight: bold; color: #333333;">Download CAD files</h5>
-
-            <div class="CADformat" style="float: left; font-size: 15px; color: #747474; padding-top: 5px; width: 60%;">
-              <div style="color: #333333;">CAD Format:</div>
-              <select id="cad_format" class="form-control" style="width: 96%;"></select>
-            </div>
-
-            <div class="download_cad" style="float: left; padding-top: 26px;">
-              <button class="btn btn-primary" id="cad_download_btn" title="Download CAD files" onclick="onDowloadClick(); return false;">DOWNLOAD</button>
-            </div>
-
-            <div id="cad_download_link" style="font-size: 14px; width: 100%; color: #333333; padding-top: 12px; padding-bottom: 10px; float: left;"></div>
-
-          </div>
-        </div>
-        <div class="clearfix"></div>
+        {/if}
 
         <script src="/HeliozTrace.js"></script>
 
