@@ -119,19 +119,19 @@
                 <div class="modal-body">
                   <form>
                     <div class="form-group">
-                      <label for="tpFirstName"><span class="req">*</span> First Name</label>
+                      <label class="control-label" for="tpFirstName"><span class="req">*</span> First Name</label>
                       <input type="text" class="form-control" id="tpFirstName" required>
                     </div>
                     <div class="form-group">
-                      <label for="tpLastName"><span class="req">*</span> Last Name</label>
+                      <label class="control-label" for="tpLastName"><span class="req">*</span> Last Name</label>
                       <input type="text" class="form-control" id="tpLastName" required>
                     </div>
                     <div class="form-group">
-                      <label for="tpEmailAddress"><span class="req">*</span> Email Address</label>
+                      <label class="control-label" for="tpEmailAddress"><span class="req">*</span> Email Address</label>
                       <input type="email" class="form-control" id="tpEmailAddress" required>
                     </div>
                     <div class="form-group">
-                      <label for="tpCompany"><span class="req">*</span> Company</label>
+                      <label class="control-label" for="tpCompany"><span class="req">*</span> Company</label>
                       <input type="text" class="form-control" id="tpCompany" required>
                     </div>
                   </form>
