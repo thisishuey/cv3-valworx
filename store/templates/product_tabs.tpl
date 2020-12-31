@@ -1,6 +1,13 @@
 {assign var="tpClassificationID" value="VALWORX_1588279872"}
-{assign var="tpPartID" value="90-30092020-032011"}
+{assign var="tpPartID" value=""}
 {assign var="tpPartNumber" value="551802"}
+
+{assign var="tpStart" value=$product.cust_7|strpos:"tpPartID:"}
+{if $tpStart > -1}
+  {assign var="tpString" value=$product.cust_7|substr:$tpStart+9}
+  {assign var="tpEnd" value=$tpString|strpos:" -->"}
+  {assign var="tpPartID" value=$tpString|substr:0:$tpEnd}
+{/if}
 
 <div class="clearfix"></div>
 <div id="product_tabs">
@@ -93,7 +100,7 @@
               </div>
 
               <div class="download_cad" style="float: left; padding-top: 26px;">
-                <button class="btn btn-primary" id="cad_download_btn" title="Download CAD files" onclick="onDowloadClick(); return false;">DOWNLOAD</button>
+                <button class="btn btn-primary" id="cad_download_btn" title="Download CAD files" onclick="onDownloadClick(); return false;">DOWNLOAD</button>
               </div>
 
               <div id="cad_download_link" style="font-size: 14px; width: 100%; color: #333333; padding-top: 12px; padding-bottom: 10px; float: left;"></div>
@@ -127,7 +134,7 @@
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Save changes</button>
+                  <button type="button" class="btn btn-primary" onclick="onDownloadFormSubmit(); return false;">Save changes</button>
                 </div>
               </div>
             </div>
@@ -150,7 +157,7 @@
 
             const $ = jQuery;
 
-            function onDowloadClick () {
+            function onDownloadClick () {
               if (isCadDownloadInProgress) {
                 return false;
               }
@@ -166,7 +173,7 @@
 
             }
 
-            function onRequestDownload () {
+            function onDownloadFormSubmit () {
               if (isCadDownloadInProgress) {
                 return false;
               }
