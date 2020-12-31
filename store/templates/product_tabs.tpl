@@ -83,7 +83,7 @@
             <h5 class="titleDownload" style="font-size: 18px; font-weight: bold; color: #333333;">Download CAD files</h5>
 
             <div class="CADformat" style="float: left; font-size: 15px; color: #747474; padding-top: 5px;">
-              <span style="color: #333333;">CAD Format:</span>
+              <div style="color: #333333;">CAD Format:</div>
               <select id="cad_format" style="color: #333333;" style="height: 37px; vertical-align: baseline; width: 60%;">
                 <i class="fas fa-caret-down"></i>
               </select>
