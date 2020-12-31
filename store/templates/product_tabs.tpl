@@ -110,6 +110,7 @@
 
           const tpClassificationID = "{$tpClassificationID}";
           const tpPartID = "{$tpPartID}";
+          const tpPartNumber = "{$tpPartNumber}";
           const userEmail = "test@test.com";
           let isCadDownloadInProgress = false;
 
