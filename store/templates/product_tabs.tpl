@@ -147,7 +147,7 @@
 
         {/if}
 
-        <script src="/HeliozTrace.js"></script>
+        <script src="/HeliozTrace.js?ver=2021010501"></script>
 
         <script>
           const tpClassificationID = "{$tpClassificationID}";
