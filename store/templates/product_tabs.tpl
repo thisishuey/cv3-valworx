@@ -212,7 +212,7 @@
               heliozTraceDownloadCADPath({
                 ClassificationID: tpClassificationID,
                 PartNumber: tpPartNumber,
-                UserEmail: userEmail,
+                UserEmail: tpUserEmail,
                 CADFormatID: CADFormatID,
                 Version: 2,
                 SaveAssemblyAsPart: 1
