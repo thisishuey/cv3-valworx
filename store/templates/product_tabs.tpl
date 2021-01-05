@@ -150,65 +150,47 @@
         <script src="/HeliozTrace.js"></script>
 
         <script>
-
           const tpClassificationID = "{$tpClassificationID}";
           const tpPartID = "{$tpPartID}";
           const tpPartNumber = "{$tpPartNumber}";
           const userEmail = "huey+traceparts@carpetelam.com";
           let isCadDownloadInProgress = false;
-
           {literal}
-
             const $ = jQuery;
-
             function onDownloadClick () {
-
               const select = document.getElementById("cad_format");
               const CADFormatID = select.value;
-
               if (isCadDownloadInProgress || CADFormatID === "") {
                 return false;
               }
-
               $("#cad_modal").modal("show");
-
             }
-
             function onDownloadFormSubmit () {
               let formComplete = true;
-
               $("#cad_modal").find(".form-group").removeClass("has-error");
-
               if ($("#tpFirstName").val() === "") {
                 $("#tpFirstName").closest(".form-group").addClass("has-error");
                 formComplete = false;
               }
-
               if ($("#tpLastName").val() === "") {
                 $("#tpLastName").closest(".form-group").addClass("has-error");
                 formComplete = false;
               }
-
               if ($("#tpEmailAddress").val() === "") {
                 $("#tpEmailAddress").closest(".form-group").addClass("has-error");
                 formComplete = false;
               }
-
               if ($("#tpCompany").val() === "") {
                 $("#tpCompany").closest(".form-group").addClass("has-error");
                 formComplete = false;
               }
-
               if (isCadDownloadInProgress || !formComplete) {
                 return false;
               }
-
               $("#cad_modal").modal("hide");
-
               isCadDownloadInProgress = true;
               const select = document.getElementById("cad_format");
               const CADFormatID = select.value;
-
               document.getElementById("cad_download_link").innerHTML = "Preparing the file for download...";
               heliozTraceDownloadCADPath({
                 ClassificationID: tpClassificationID,
@@ -223,14 +205,12 @@
                 document.getElementById("cad_download_link").innerHTML = `Your file is ready for download. Please click <a href="${data.filesPath[0].path}" download style="text-decoration:underline">here</a>.`;
               });
             }
-
             function changeView (event) {
               $("[id^=panel_]").hide();
               $(`#panel_${event.id}`).show();
               $("#tpView .btn-primary").removeClass("btn-primary").addClass("btn-default");
               $(event).removeClass("btn-default").addClass("btn-primary");
             }
-
             $(() => {
               heliozTraceDownloadOptions({
                 ClassificationID: tpClassificationID,
@@ -240,7 +220,6 @@
                 document.getElementById("ifCad3d").src = `https://www.traceparts.com/els/helioz/en/api/viewer/3d?SupplierID=${tpClassificationID}&DisplayLogo=false&Product=${tpPartID}`;
               })
             });
-
             function openFullScreen() {
               const element = document.getElementById("ifCad3d");
               if (element.requestFullscreen) {
@@ -253,9 +232,7 @@
                 element.msRequestFullscreen();
               }
             }
-
           {/literal}
-
         </script>
       </div>
     {/if}
@@ -270,6 +247,5 @@
       </div>
     {/if}
   </div>
-
 </div>
 {*** TAB JS MOVED TO extra-js.tpl ***}
