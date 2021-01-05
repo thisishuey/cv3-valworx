@@ -192,17 +192,8 @@
               const tpUserEmail = $("tpUserEmail").val();
               const tpCompany = $("tpCompany").val();
 
-              heliozTraceCheckLogin({
-                UserEmail: tpUserEmail
-              }, (data) => { console.log(data); });
-
-              heliozTraceUserRegistration({
-                UserEmail: tpUserEmail,
-                company: tpCompany,
-                country: "US",
-                fname: tpFName,
-                name: tpName
-              }, (data) => { console.log(data) });
+              HeliozTraceApiClient.get("CheckLogin", { UserEmail: tpUserEmail }, data => console.log(data));
+              HeliozTraceApiClient.get("UserRegistration", { UserEmail: tpUserEmail, company: tpCompany, country: "US", fname: tpFName, name: tpName }, data => console.log(data))
 
               $("#cad_modal").modal("hide");
               isCadDownloadInProgress = true;

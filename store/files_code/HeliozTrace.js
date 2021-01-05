@@ -87,29 +87,3 @@ var heliozTraceDownloadOptions = function (params, selectField) {
   });
 };
 
-/////////////////////////////////////////////////////////////////////////////////////////////
-
-var heliozTraceCheckLogin = function (params, callBack) {
-  HeliozTraceApiClient.get("CheckLogin", params, function (data) {
-    if (typeof callBack != "undefined") {
-      if (data.globalInfo.error == "False") {
-        callBack(data);
-      } else {
-        throw "CheckLogin error";
-      }
-    }
-  });
-};
-
-var heliozTraceUserRegistration = function (params, callBack) {
-  HeliozTraceApiClient.get("UserRegistration", params, function (data) {
-    if (typeof callBack != "undefined") {
-      if (data.globalInfo.error == "False") {
-        callBack(data);
-      } else {
-        throw "UserRegistration error";
-      }
-    }
-  });
-};
-
