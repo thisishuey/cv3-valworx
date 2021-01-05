@@ -119,20 +119,20 @@
                 <div class="modal-body">
                   <form>
                     <div class="form-group">
-                      <label class="control-label" for="tpFirstName"><span class="req">*</span> First Name</label>
-                      <input type="text" class="form-control" id="tpFirstName" required>
+                      <label class="control-label" for="tpFName"><span class="req">*</span> First Name</label>
+                      <input type="text" class="form-control" id="tpFName">
                     </div>
                     <div class="form-group">
-                      <label class="control-label" for="tpLastName"><span class="req">*</span> Last Name</label>
-                      <input type="text" class="form-control" id="tpLastName" required>
+                      <label class="control-label" for="tpName"><span class="req">*</span> Last Name</label>
+                      <input type="text" class="form-control" id="tpName">
                     </div>
                     <div class="form-group">
-                      <label class="control-label" for="tpEmailAddress"><span class="req">*</span> Email Address</label>
-                      <input type="email" class="form-control" id="tpEmailAddress" required>
+                      <label class="control-label" for="tpUserEmail"><span class="req">*</span> Email Address</label>
+                      <input type="email" class="form-control" id="tpUserEmail">
                     </div>
                     <div class="form-group">
                       <label class="control-label" for="tpCompany"><span class="req">*</span> Company</label>
-                      <input type="text" class="form-control" id="tpCompany" required>
+                      <input type="text" class="form-control" id="tpCompany">
                     </div>
                   </form>
                 </div>
@@ -153,7 +153,6 @@
           const tpClassificationID = "{$tpClassificationID}";
           const tpPartID = "{$tpPartID}";
           const tpPartNumber = "{$tpPartNumber}";
-          const userEmail = "huey+traceparts@carpetelam.com";
           let isCadDownloadInProgress = false;
           {literal}
             const $ = jQuery;
@@ -168,16 +167,16 @@
             function onDownloadFormSubmit () {
               let formComplete = true;
               $("#cad_modal").find(".form-group").removeClass("has-error");
-              if ($("#tpFirstName").val() === "") {
-                $("#tpFirstName").closest(".form-group").addClass("has-error");
+              if ($("#tpFName").val() === "") {
+                $("#tpFName").closest(".form-group").addClass("has-error");
                 formComplete = false;
               }
-              if ($("#tpLastName").val() === "") {
-                $("#tpLastName").closest(".form-group").addClass("has-error");
+              if ($("#tpName").val() === "") {
+                $("#tpName").closest(".form-group").addClass("has-error");
                 formComplete = false;
               }
-              if ($("#tpEmailAddress").val() === "") {
-                $("#tpEmailAddress").closest(".form-group").addClass("has-error");
+              if ($("#tpUserEmail").val() === "") {
+                $("#tpUserEmail").closest(".form-group").addClass("has-error");
                 formComplete = false;
               }
               if ($("#tpCompany").val() === "") {
@@ -187,6 +186,24 @@
               if (isCadDownloadInProgress || !formComplete) {
                 return false;
               }
+
+              const tpFName = $("#tpFName").val();
+              const tpLastName = $("tpLastName").val();
+              const tpUserEmail = $("tpUserEmail").val();
+              const tpCompany = $("tpCompany").val();
+
+              heliozTraceCheckLogin({
+                UserEmail: tpUserEmail
+              }, (data) => { console.log(data); });
+
+              heliozTraceUserRegistration({
+                UserEmail: tpUserEmail,
+                company: tpCompany,
+                country: "US",
+                fname: tpFName,
+                name: tpName
+              }, (data) => { console.log(data) });
+
               $("#cad_modal").modal("hide");
               isCadDownloadInProgress = true;
               const select = document.getElementById("cad_format");
