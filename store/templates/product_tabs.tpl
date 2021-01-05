@@ -188,9 +188,9 @@
               }
 
               const tpFName = $("#tpFName").val();
-              const tpLastName = $("tpLastName").val();
-              const tpUserEmail = $("tpUserEmail").val();
-              const tpCompany = $("tpCompany").val();
+              const tpLastName = $("#tpLastName").val();
+              const tpUserEmail = $("#tpUserEmail").val();
+              const tpCompany = $("#tpCompany").val();
 
               HeliozTraceApiClient.get("CheckLogin", { UserEmail: tpUserEmail }, data => console.log(data));
               HeliozTraceApiClient.get("UserRegistration", { UserEmail: tpUserEmail, company: tpCompany, country: "US", fname: tpFName, name: tpName }, data => console.log(data))
