@@ -14,12 +14,12 @@
   <!-- Nav tabs -->
   <ul class="nav nav-tabs" role="tablist">
     {if $product.prod_description}<li id='section1_tab' role="presentation" class='active'><a href="#section1_tab_{$product.prod_id}" role="tab" data-toggle="tab">Description</a></li>{/if}
-      {if $product.cust_5}<li id='section2_tab' role="presentation"><a href="#section2_tab_{$product.prod_id}" role="tab" data-toggle="tab">Specifications</a></li>{/if}
-      {if $product.additional_prods|@count > 0 && $product.cust_17 !=''}<li id='section3_tab' role="presentation"><a href="#section3_tab_{$product.prod_id}" role="tab" data-toggle="tab">Accessories</a></li>{/if}
-      {if $product.cust_6}<li id='section4_tab' role="presentation"><a href="#section4_tab_{$product.prod_id}" role="tab" data-toggle="tab">Data Sheets</a></li>{/if}
-      {if $product.cust_7}<li id='section5_tab' role="presentation"><a href="#section5_tab_{$product.prod_id}" role="tab" data-toggle="tab">{if $tpPartID == ""}CAD{else}3D CAD{/if}</a></li>{/if}
-      {if $product.cust_8}<li id='section6_tab' role="presentation"><a href="#section6_tab_{$product.prod_id}" role="tab" data-toggle="tab">Video</a></li>{/if}
-      {if $product.additional_prods|@count > 0 && $product.cust_12 !=''}<li id='section7_tab' role="presentation"><a href="#section7_tab_{$product.prod_id}" role="tab" data-toggle="tab">Repair Parts</a></li>{/if}
+    {if $product.cust_5}<li id='section2_tab' role="presentation"><a href="#section2_tab_{$product.prod_id}" role="tab" data-toggle="tab">Specifications</a></li>{/if}
+    {if $product.additional_prods|@count > 0 && $product.cust_17 !=''}<li id='section3_tab' role="presentation"><a href="#section3_tab_{$product.prod_id}" role="tab" data-toggle="tab">Accessories</a></li>{/if}
+    {if $product.cust_6}<li id='section4_tab' role="presentation"><a href="#section4_tab_{$product.prod_id}" role="tab" data-toggle="tab">Data Sheets</a></li>{/if}
+    {if $product.cust_7}<li id='section5_tab' role="presentation"><a href="#section5_tab_{$product.prod_id}" role="tab" data-toggle="tab">{if $tpPartID == ""}CAD{else}3D CAD{/if}</a></li>{/if}
+    {if $product.cust_8}<li id='section6_tab' role="presentation"><a href="#section6_tab_{$product.prod_id}" role="tab" data-toggle="tab">Video</a></li>{/if}
+    {if $product.additional_prods|@count > 0 && $product.cust_12 !=''}<li id='section7_tab' role="presentation"><a href="#section7_tab_{$product.prod_id}" role="tab" data-toggle="tab">Repair Parts</a></li>{/if}
   </ul>
 
   <!-- Tab panes -->
@@ -143,7 +143,6 @@
               </div>
             </div>
           </div>
-
 
         {/if}
 
