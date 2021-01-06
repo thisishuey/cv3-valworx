@@ -120,15 +120,15 @@
                   <form>
                     <div class="form-group">
                       <label class="control-label" for="tpFName"><span class="req">*</span> First Name</label>
-                      <input type="text" class="form-control" id="tpFName">
+                      <input type="text" class="form-control" id="tpFName" value="{memberinfo.first_name}">
                     </div>
                     <div class="form-group">
                       <label class="control-label" for="tpName"><span class="req">*</span> Last Name</label>
-                      <input type="text" class="form-control" id="tpName">
+                      <input type="text" class="form-control" id="tpName" value="{memberinfo.last_name}">
                     </div>
                     <div class="form-group">
                       <label class="control-label" for="tpUserEmail"><span class="req">*</span> Email Address</label>
-                      <input type="email" class="form-control" id="tpUserEmail">
+                      <input type="email" class="form-control" id="tpUserEmail" value="{memberinfo.email}">
                     </div>
                     <div class="form-group">
                       <label class="control-label" for="tpCompany"><span class="req">*</span> Company</label>
