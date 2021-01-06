@@ -152,16 +152,23 @@
           const tpClassificationID = "{$tpClassificationID}";
           const tpPartID = "{$tpPartID}";
           const tpPartNumber = "{$tpPartNumber}";
-          let isCadDownloadInProgress = false;
           {literal}
             const $ = jQuery;
+            const tpUserEmailCookie = $.cookie("tpUserEmailCookie");
+            let isCadDownloadInProgress = false;
             function onDownloadClick () {
               const select = document.getElementById("cad_format");
               const CADFormatID = select.value;
               if (isCadDownloadInProgress || CADFormatID === "") {
                 return false;
               }
-              $("#cad_modal").modal("show");
+              if (tpUserEmailCookie === "") {
+                $("#cad_modal").modal("show");
+              } else {
+                // User already has a traceparts account and has a cookie with their email address
+                // so we don't need to prompt them for their info
+                onDownloadFormSubmit();
+              }
             }
             async function onDownloadFormSubmit () {
               let formComplete = true;
@@ -182,13 +189,13 @@
                 $("#tpCompany").closest(".form-group").addClass("has-error");
                 formComplete = false;
               }
-              if (isCadDownloadInProgress || !formComplete) {
+              if (tpUserEmail === "" && !formComplete) {
                 return false;
               }
 
               const tpFName = $("#tpFName").val();
               const tpLastName = $("#tpLastName").val();
-              const tpUserEmail = $("#tpUserEmail").val();
+              const tpUserEmail = tpUserEmailCookie || $("#tpUserEmail").val();
               const tpCompany = $("#tpCompany").val();
 
               const checkLogin = await HeliozTraceApiClient.get("CheckLogin", { UserEmail: tpUserEmail });
@@ -196,6 +203,8 @@
               if (!checkLogin.registered) {
                 await HeliozTraceApiClient.get("UserRegistration", { UserEmail: tpUserEmail, company: tpCompany, country: "US", fname: tpFName, name: tpName });
               }
+
+              $.cookie("tpUserEmailCookie", tpUserEmail);
 
               $("#cad_modal").modal("hide");
               isCadDownloadInProgress = true;
