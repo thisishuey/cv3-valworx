@@ -69,7 +69,7 @@
             <div class="catalog-left" style="float: left; width: 55%;">
 
               <div class="btn-group" role="group" aria-label="..." id="tpView">
-                {if $iproduct.web_image}
+                {if $iproduct.large_image}
                   <a id="image" onclick="changeView(this);" title="Image View" class="btn btn-default"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span></a>
                 {/if}
                 <a id="3d" onclick="changeView(this);" title="3D View" class="btn btn-primary"><span class="glyphicon glyphicon-move" aria-hidden="true"></span></a>
@@ -84,10 +84,10 @@
                 </div>
               </div>
 
-              {if $product.web_image}
+              {if $product.large__image}
                 <div id="panel_image" style="display: none; height: 350px;">
                   <div class="model-productImgBox" style="text-align: center;">
-                    <img src="{$product.web_image|img_prefix}" style="width: 80%; padding-top: 0px; text-align: center;" id="valworx_image">
+                    <img src="{$product.large_image|img_prefix}" style="width: 80%; padding-top: 0px; text-align: center;" id="valworx_image">
                   </div>
                 </div>
               {/if}
