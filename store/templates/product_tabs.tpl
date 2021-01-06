@@ -154,7 +154,7 @@
           const tpPartNumber = "{$tpPartNumber}";
           {literal}
             const $ = jQuery;
-            const tpUserEmailCookie = $.cookie("tpUserEmailCookie");
+            const tpUserEmailCookie = $.cookie("tpUserEmailCookie") || "";
             let isCadDownloadInProgress = false;
             function onDownloadClick () {
               const select = document.getElementById("cad_format");
