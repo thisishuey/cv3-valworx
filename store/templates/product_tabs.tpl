@@ -63,11 +63,15 @@
 
         {else}
 
+          {#traceparts_header#}
+
           <div style="float: left; width: 100%; padding-top: 0px;">
             <div class="catalog-left" style="float: left; width: 55%;">
 
               <div class="btn-group" role="group" aria-label="..." id="tpView">
-                <a id="image" onclick="changeView(this);" title="Image View" class="btn btn-default"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span></a>
+                {if $image}
+                  <a id="image" onclick="changeView(this);" title="Image View" class="btn btn-default"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span></a>
+                {/if}
                 <a id="3d" onclick="changeView(this);" title="3D View" class="btn btn-primary"><span class="glyphicon glyphicon-move" aria-hidden="true"></span></a>
               </div>
 
@@ -80,11 +84,13 @@
                 </div>
               </div>
 
-              <div id="panel_image" style="display: none; height: 350px;">
-                <div class="model-productImgBox" style="text-align: center;">
-                  <img src="${img_prefix}/main/product/image.jpg" style="width: 80%; padding-top: 0px; text-align: center;" id="valworx_image">
+              {if $image}
+                <div id="panel_image" style="display: none; height: 350px;">
+                  <div class="model-productImgBox" style="text-align: center;">
+                    <img src="{$image|img_prefix}" style="width: 80%; padding-top: 0px; text-align: center;" id="valworx_image">
+                  </div>
                 </div>
-              </div>
+              {/if}
 
             </div>
 
@@ -144,115 +150,118 @@
             </div>
           </div>
 
+          {#traceparts_footer#}
+
+          <script src="/HeliozTrace.js?ver=2021010501"></script>
+
+          <script>
+            const tpClassificationID = "{$tpClassificationID}";
+            const tpPartID = "{$tpPartID}";
+            const tpPartNumber = "{$tpPartNumber}";
+            {literal}
+              const $ = jQuery;
+              const tpUserEmailCookie = $.cookie("tpUserEmailCookie") || "";
+              let isCadDownloadInProgress = false;
+              function onDownloadClick () {
+                const select = document.getElementById("cad_format");
+                const CADFormatID = select.value;
+                if (isCadDownloadInProgress || CADFormatID === "") {
+                  return false;
+                }
+                if (tpUserEmailCookie === "") {
+                  $("#cad_modal").modal("show");
+                } else {
+                  // User already has a traceparts account and has a cookie with their email address
+                  // so we don't need to prompt them for their info
+                  onDownloadFormSubmit();
+                }
+              }
+              async function onDownloadFormSubmit () {
+                let formComplete = true;
+                $("#cad_modal").find(".form-group").removeClass("has-error");
+                if ($("#tpFName").val() === "") {
+                  $("#tpFName").closest(".form-group").addClass("has-error");
+                  formComplete = false;
+                }
+                if ($("#tpName").val() === "") {
+                  $("#tpName").closest(".form-group").addClass("has-error");
+                  formComplete = false;
+                }
+                if ($("#tpUserEmail").val() === "") {
+                  $("#tpUserEmail").closest(".form-group").addClass("has-error");
+                  formComplete = false;
+                }
+                if ($("#tpCompany").val() === "") {
+                  $("#tpCompany").closest(".form-group").addClass("has-error");
+                  formComplete = false;
+                }
+                if (tpUserEmailCookie === "" && !formComplete) {
+                  return false;
+                }
+
+                const tpFName = $("#tpFName").val();
+                const tpLastName = $("#tpLastName").val();
+                const tpUserEmail = tpUserEmailCookie || $("#tpUserEmail").val();
+                const tpCompany = $("#tpCompany").val();
+
+                const checkLogin = await HeliozTraceApiClient.get("CheckLogin", { UserEmail: tpUserEmail });
+
+                if (!checkLogin.registered) {
+                  await HeliozTraceApiClient.get("UserRegistration", { UserEmail: tpUserEmail, company: tpCompany, country: "US", fname: tpFName, name: tpName });
+                }
+
+                $.cookie("tpUserEmailCookie", tpUserEmail);
+
+                $("#cad_modal").modal("hide");
+                isCadDownloadInProgress = true;
+                const select = document.getElementById("cad_format");
+                const CADFormatID = select.value;
+                document.getElementById("cad_download_link").innerHTML = "Preparing the file for download...";
+                heliozTraceDownloadCADPath({
+                  ClassificationID: tpClassificationID,
+                  PartNumber: tpPartNumber,
+                  UserEmail: tpUserEmail,
+                  CADFormatID: CADFormatID,
+                  Version: 2,
+                  SaveAssemblyAsPart: 1
+                },
+                (data) => {
+                  isCadDownloadInProgress = false;
+                  document.getElementById("cad_download_link").innerHTML = `Your file is ready for download. Please click <a href="${data.filesPath[0].path}" download style="text-decoration:underline">here</a>.`;
+                });
+              }
+              function changeView (event) {
+                $("[id^=panel_]").hide();
+                $(`#panel_${event.id}`).show();
+                $("#tpView .btn-primary").removeClass("btn-primary").addClass("btn-default");
+                $(event).removeClass("btn-default").addClass("btn-primary");
+              }
+              $(() => {
+                heliozTraceDownloadOptions({
+                  ClassificationID: tpClassificationID,
+                  PartNumber: tpPartNumber
+                }, document.getElementById("cad_format"));
+                document.getElementById("section5_tab").addEventListener("click", () => {
+                  document.getElementById("ifCad3d").src = `https://www.traceparts.com/els/helioz/en/api/viewer/3d?SupplierID=${tpClassificationID}&DisplayLogo=false&Product=${tpPartID}`;
+                })
+              });
+              function openFullScreen() {
+                const element = document.getElementById("ifCad3d");
+                if (element.requestFullscreen) {
+                  element.requestFullscreen();
+                } else if (element.mozRequestFullScreen) {
+                  element.mozRequestFullScreen();
+                } else if (element.webkitRequestFullscreen) {
+                  element.webkitRequestFullscreen();
+                } else if (element.msRequestFullscreen) {
+                  element.msRequestFullscreen();
+                }
+              }
+            {/literal}
+          </script>
+
         {/if}
 
-        <script src="/HeliozTrace.js?ver=2021010501"></script>
-
-        <script>
-          const tpClassificationID = "{$tpClassificationID}";
-          const tpPartID = "{$tpPartID}";
-          const tpPartNumber = "{$tpPartNumber}";
-          {literal}
-            const $ = jQuery;
-            const tpUserEmailCookie = $.cookie("tpUserEmailCookie") || "";
-            let isCadDownloadInProgress = false;
-            function onDownloadClick () {
-              const select = document.getElementById("cad_format");
-              const CADFormatID = select.value;
-              if (isCadDownloadInProgress || CADFormatID === "") {
-                return false;
-              }
-              if (tpUserEmailCookie === "") {
-                $("#cad_modal").modal("show");
-              } else {
-                // User already has a traceparts account and has a cookie with their email address
-                // so we don't need to prompt them for their info
-                onDownloadFormSubmit();
-              }
-            }
-            async function onDownloadFormSubmit () {
-              let formComplete = true;
-              $("#cad_modal").find(".form-group").removeClass("has-error");
-              if ($("#tpFName").val() === "") {
-                $("#tpFName").closest(".form-group").addClass("has-error");
-                formComplete = false;
-              }
-              if ($("#tpName").val() === "") {
-                $("#tpName").closest(".form-group").addClass("has-error");
-                formComplete = false;
-              }
-              if ($("#tpUserEmail").val() === "") {
-                $("#tpUserEmail").closest(".form-group").addClass("has-error");
-                formComplete = false;
-              }
-              if ($("#tpCompany").val() === "") {
-                $("#tpCompany").closest(".form-group").addClass("has-error");
-                formComplete = false;
-              }
-              if (tpUserEmailCookie === "" && !formComplete) {
-                return false;
-              }
-
-              const tpFName = $("#tpFName").val();
-              const tpLastName = $("#tpLastName").val();
-              const tpUserEmail = tpUserEmailCookie || $("#tpUserEmail").val();
-              const tpCompany = $("#tpCompany").val();
-
-              const checkLogin = await HeliozTraceApiClient.get("CheckLogin", { UserEmail: tpUserEmail });
-
-              if (!checkLogin.registered) {
-                await HeliozTraceApiClient.get("UserRegistration", { UserEmail: tpUserEmail, company: tpCompany, country: "US", fname: tpFName, name: tpName });
-              }
-
-              $.cookie("tpUserEmailCookie", tpUserEmail);
-
-              $("#cad_modal").modal("hide");
-              isCadDownloadInProgress = true;
-              const select = document.getElementById("cad_format");
-              const CADFormatID = select.value;
-              document.getElementById("cad_download_link").innerHTML = "Preparing the file for download...";
-              heliozTraceDownloadCADPath({
-                ClassificationID: tpClassificationID,
-                PartNumber: tpPartNumber,
-                UserEmail: tpUserEmail,
-                CADFormatID: CADFormatID,
-                Version: 2,
-                SaveAssemblyAsPart: 1
-              },
-              (data) => {
-                isCadDownloadInProgress = false;
-                document.getElementById("cad_download_link").innerHTML = `Your file is ready for download. Please click <a href="${data.filesPath[0].path}" download style="text-decoration:underline">here</a>.`;
-              });
-            }
-            function changeView (event) {
-              $("[id^=panel_]").hide();
-              $(`#panel_${event.id}`).show();
-              $("#tpView .btn-primary").removeClass("btn-primary").addClass("btn-default");
-              $(event).removeClass("btn-default").addClass("btn-primary");
-            }
-            $(() => {
-              heliozTraceDownloadOptions({
-                ClassificationID: tpClassificationID,
-                PartNumber: tpPartNumber
-              }, document.getElementById("cad_format"));
-              document.getElementById("section5_tab").addEventListener("click", () => {
-                document.getElementById("ifCad3d").src = `https://www.traceparts.com/els/helioz/en/api/viewer/3d?SupplierID=${tpClassificationID}&DisplayLogo=false&Product=${tpPartID}`;
-              })
-            });
-            function openFullScreen() {
-              const element = document.getElementById("ifCad3d");
-              if (element.requestFullscreen) {
-                element.requestFullscreen();
-              } else if (element.mozRequestFullScreen) {
-                element.mozRequestFullScreen();
-              } else if (element.webkitRequestFullscreen) {
-                element.webkitRequestFullscreen();
-              } else if (element.msRequestFullscreen) {
-                element.msRequestFullscreen();
-              }
-            }
-          {/literal}
-        </script>
       </div>
     {/if}
     {if $product.cust_8}
