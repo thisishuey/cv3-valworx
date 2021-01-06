@@ -189,7 +189,7 @@
                 $("#tpCompany").closest(".form-group").addClass("has-error");
                 formComplete = false;
               }
-              if (tpUserEmail === "" && !formComplete) {
+              if (tpUserEmailCookie === "" && !formComplete) {
                 return false;
               }
 
