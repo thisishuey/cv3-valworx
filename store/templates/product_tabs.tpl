@@ -164,7 +164,7 @@
               }
               $("#cad_modal").modal("show");
             }
-            function onDownloadFormSubmit () {
+            async function onDownloadFormSubmit () {
               let formComplete = true;
               $("#cad_modal").find(".form-group").removeClass("has-error");
               if ($("#tpFName").val() === "") {
@@ -192,8 +192,11 @@
               const tpUserEmail = $("#tpUserEmail").val();
               const tpCompany = $("#tpCompany").val();
 
-              HeliozTraceApiClient.get("CheckLogin", { UserEmail: tpUserEmail }, data => console.log(data));
-              HeliozTraceApiClient.get("UserRegistration", { UserEmail: tpUserEmail, company: tpCompany, country: "US", fname: tpFName, name: tpName }, data => console.log(data))
+              const checkLogin = await HeliozTraceApiClient.get("CheckLogin", { UserEmail: tpUserEmail });
+
+              if (!checkLogin.registered) {
+                await HeliozTraceApiClient.get("UserRegistration", { UserEmail: tpUserEmail, company: tpCompany, country: "US", fname: tpFName, name: tpName });
+              }
 
               $("#cad_modal").modal("hide");
               isCadDownloadInProgress = true;

@@ -1,7 +1,7 @@
 var HeliozTraceApiClient = {
   apiKey: "3qLUCxEHdnmVag",
   baseUrl: "https://ws.tracepartsonline.net/tpowebservices/",
-  get: function (endPoint, params, cb) {
+  get: async function (endPoint, params, cb) {
     var url =
       this.baseUrl + endPoint + "?" + "ApiKey=" + this.apiKey + "&Format=json";
 
@@ -9,23 +9,38 @@ var HeliozTraceApiClient = {
       url += "&" + k + "=" + encodeURIComponent(params[k]);
     }
 
-    var request = new XMLHttpRequest();
-    request.open("GET", url, true);
+    // var request = new XMLHttpRequest();
+    // request.open("GET", url, true);
 
-    request.onload = function () {
-      if (request.status >= 200 && request.status < 400) {
-        var data = JSON.parse(request.responseText);
+    // request.onload = function () {
+    //   if (request.status >= 200 && request.status < 400) {
+    //     var data = JSON.parse(request.responseText);
+    //     cb(data);
+    //   } else {
+    //     console.error(request);
+    //   }
+    // };
+
+    // request.onerror = function () {
+    //   console.error(request);
+    // };
+
+    // request.send();
+
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+
+      console.log(data);
+
+      if (typeof cb !== "undefined") {
         cb(data);
-      } else {
-        console.error(request);
       }
-    };
 
-    request.onerror = function () {
-      console.error(request);
-    };
-
-    request.send();
+      return data;
+    } catch (error) {
+      console.error(error);
+    }
   },
 };
 
