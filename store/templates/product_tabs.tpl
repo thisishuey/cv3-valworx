@@ -84,7 +84,7 @@
                 </div>
               </div>
 
-              {if $product.large__image}
+              {if $product.large_image}
                 <div id="panel_image" style="display: none; height: 350px;">
                   <div class="model-productImgBox" style="text-align: center;">
                     <img src="{$product.large_image|img_prefix}" style="width: 80%; padding-top: 0px; text-align: center;" id="valworx_image">
