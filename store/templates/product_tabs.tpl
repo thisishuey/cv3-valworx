@@ -1,8 +1,8 @@
 {assign var="tpClassificationID" value="VALWORX_1588279872"}
 {assign var="tpPartNumber" value=$product.sku}
 
-{assign var="tpStrPos" value=$product.cust_7|strpos:"tpEnabled"}
-{assign var="tpEnabled" value=$tpStrPos > -1}
+{assign var="tpStrPos" value=$product.cust_7|strpos:"tracepartsActive"}
+{assign var="tpActive" value=$tpStrPos > -1}
 
 <div class="clearfix"></div>
 <div id="product_tabs">
@@ -52,7 +52,11 @@
     {/if}
     {if $product.cust_7}
       <div role="tabpanel" class="tab-pane" id="section5_tab_{$product.prod_id}">
-        {if $tpEnabled}
+        {if !$tpActive}
+
+          {$product.cust_7}
+
+        {else}
 
           {#traceparts_header#}
 
@@ -248,10 +252,6 @@
               }
             {/literal}
           </script>
-
-        {else}
-
-          {$product.cust_7}
 
         {/if}
 
