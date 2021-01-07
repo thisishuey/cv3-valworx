@@ -222,8 +222,7 @@
                   PartNumber: tpPartNumber,
                   UserEmail: tpUserEmail,
                   CADFormatID: CADFormatID,
-                  Version: 2,
-                  SaveAssemblyAsPart: 1
+                  Version: 2
                 },
                 (data) => {
                   isCadDownloadInProgress = false;
