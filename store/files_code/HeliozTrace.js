@@ -101,4 +101,3 @@ var heliozTraceDownloadOptions = function (params, selectField) {
     select.addFormats(array);
   });
 };
-
