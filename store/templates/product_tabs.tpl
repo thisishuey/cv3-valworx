@@ -1,13 +1,8 @@
 {assign var="tpClassificationID" value="VALWORX_1588279872"}
-{assign var="tpPartID" value=""}
-{assign var="tpPartNumber" value="551802"}
+{assign var="tpPartNumber" value=$product.sku}
 
-{assign var="tpStart" value=$product.cust_7|strpos:"tpPartID:"}
-{if $tpStart > -1}
-  {assign var="tpString" value=$product.cust_7|substr:$tpStart+9}
-  {assign var="tpEnd" value=$tpString|strpos:" -->"}
-  {assign var="tpPartID" value=$tpString|substr:0:$tpEnd}
-{/if}
+{assign var="tpStrPos" value=$product.cust_7|strpos:"tpEnabled"}
+{assign var="tpEnabled" value=$tpStrPos > -1}
 
 <div class="clearfix"></div>
 <div id="product_tabs">
@@ -17,7 +12,7 @@
     {if $product.cust_5}<li id='section2_tab' role="presentation"><a href="#section2_tab_{$product.prod_id}" role="tab" data-toggle="tab">Specifications</a></li>{/if}
     {if $product.additional_prods|@count > 0 && $product.cust_17 !=''}<li id='section3_tab' role="presentation"><a href="#section3_tab_{$product.prod_id}" role="tab" data-toggle="tab">Accessories</a></li>{/if}
     {if $product.cust_6}<li id='section4_tab' role="presentation"><a href="#section4_tab_{$product.prod_id}" role="tab" data-toggle="tab">Data Sheets</a></li>{/if}
-    {if $product.cust_7}<li id='section5_tab' role="presentation"><a href="#section5_tab_{$product.prod_id}" role="tab" data-toggle="tab">CAD <!--{if $tpPartID == ""}CAD{else}3D CAD{/if} --></a></li>{/if}
+    {if $product.cust_7}<li id='section5_tab' role="presentation"><a href="#section5_tab_{$product.prod_id}" role="tab" data-toggle="tab">CAD</a></li>{/if}
     {if $product.cust_8}<li id='section6_tab' role="presentation"><a href="#section6_tab_{$product.prod_id}" role="tab" data-toggle="tab">Video</a></li>{/if}
     {if $product.additional_prods|@count > 0 && $product.cust_12 !=''}<li id='section7_tab' role="presentation"><a href="#section7_tab_{$product.prod_id}" role="tab" data-toggle="tab">Repair Parts</a></li>{/if}
   </ul>
@@ -57,11 +52,7 @@
     {/if}
     {if $product.cust_7}
       <div role="tabpanel" class="tab-pane" id="section5_tab_{$product.prod_id}">
-        {if $tpPartID == ""}
-
-          {$product.cust_7}
-
-        {else}
+        {if $tpEnabled}
 
           {#traceparts_header#}
 
@@ -76,7 +67,7 @@
               </div>
 
               <div id="panel_3d" style="height: 350px;">
-                <iframe id="ifCad3d" style="position: relative; width: 100%; min-height: 300px;" src="https://www.traceparts.com/els/helioz/en/api/viewer/3d?SupplierID={$tpClassificationID}&DisplayLogo=false&Product={$tpPartID}" scrolling="no" frameborder="0">
+                <iframe id="ifCad3d" style="position: relative; width: 100%; min-height: 300px;" src="https://www.traceparts.com/els/valworx/en/api/viewer/3d?SupplierID={$tpClassificationID}&DisplayLogo=false&PartNumber={$tpPartNumber}" scrolling="no" frameborder="0">
                 </iframe>
                 <div class="panel3dbuttons">
                   <span style="display: inline-block; color: #979797; line-height: 1.5rem; font-size: .6875rem;">&nbsp;</span>
@@ -152,11 +143,10 @@
 
           {#traceparts_footer#}
 
-          <script src="/HeliozTrace.js?ver=2021010501"></script>
+          <script src="/traceparts.js?ver=2021010701"></script>
 
           <script>
             const tpClassificationID = "{$tpClassificationID}";
-            const tpPartID = "{$tpPartID}";
             const tpPartNumber = "{$tpPartNumber}";
             {literal}
               const $ = jQuery;
@@ -241,7 +231,7 @@
                   PartNumber: tpPartNumber
                 }, document.getElementById("cad_format"));
                 document.getElementById("section5_tab").addEventListener("click", () => {
-                  document.getElementById("ifCad3d").src = `https://www.traceparts.com/els/helioz/en/api/viewer/3d?SupplierID=${tpClassificationID}&DisplayLogo=false&Product=${tpPartID}`;
+                  document.getElementById("ifCad3d").src = `https://www.traceparts.com/els/valworx/en/api/viewer/3d?SupplierID=${tpClassificationID}&DisplayLogo=false&PartNumber=${tpPartNumber}`;
                 })
               });
               function openFullScreen() {
@@ -258,6 +248,10 @@
               }
             {/literal}
           </script>
+
+        {else}
+
+          {$product.cust_7}
 
         {/if}
 
