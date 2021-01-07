@@ -66,7 +66,7 @@ var tracePartsDownloadCADPath = function (params, callBack) {
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 
-var TracePartsDownloadOptions = function (params, selectField) {
+var tracePartsDownloadOptions = function (params, selectField) {
   TracePartsApiClient.get("CADdataAvailability", params, function (data) {
     var select = new TracePartsCadFormatsFieldDropDown({
       element: selectField,

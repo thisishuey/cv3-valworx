@@ -198,10 +198,10 @@
                 const tpUserEmail = tpUserEmailCookie || $("#tpUserEmail").val();
                 const tpCompany = $("#tpCompany").val();
 
-                const checkLogin = await HeliozTraceApiClient.get("CheckLogin", { UserEmail: tpUserEmail });
+                const checkLogin = await TracePartsApiClient.get("CheckLogin", { UserEmail: tpUserEmail });
 
                 if (!checkLogin.registered) {
-                  await HeliozTraceApiClient.get("UserRegistration", { UserEmail: tpUserEmail, company: tpCompany, country: "US", fname: tpFName, name: tpName });
+                  await TracePartsApiClient.get("UserRegistration", { UserEmail: tpUserEmail, company: tpCompany, country: "US", fname: tpFName, name: tpName });
                 }
 
                 $.cookie("tpUserEmailCookie", tpUserEmail);
@@ -211,7 +211,7 @@
                 const select = document.getElementById("cad_format");
                 const CADFormatID = select.value;
                 document.getElementById("cad_download_link").innerHTML = "Preparing the file for download...";
-                heliozTraceDownloadCADPath({
+                tracePartsDownloadCADPath({
                   ClassificationID: tpClassificationID,
                   PartNumber: tpPartNumber,
                   UserEmail: tpUserEmail,
@@ -230,7 +230,7 @@
                 $(event).removeClass("btn-default").addClass("btn-primary");
               }
               $(() => {
-                heliozTraceDownloadOptions({
+                tracePartsDownloadOptions({
                   ClassificationID: tpClassificationID,
                   PartNumber: tpPartNumber
                 }, document.getElementById("cad_format"));
