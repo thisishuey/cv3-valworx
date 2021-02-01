@@ -1,16 +1,20 @@
 var TracePartsApiClient = {
-  apiKey: "3qLUCxEHdnmVag",
-  baseUrl: "https://ws.tracepartsonline.net/tpowebservices/",
   get: async function (endPoint, params, cb) {
-    var url =
-      this.baseUrl + endPoint + "?" + "ApiKey=" + this.apiKey + "&Format=json";
+    const queryString;
 
     for (var k in params) {
-      url += "&" + k + "=" + encodeURIComponent(params[k]);
+      queryString += "&" + k + "=" + encodeURIComponent(params[k]);
     }
 
     try {
-      const response = await fetch(url);
+      const response = await fetch("/services/api_interface/traceparts.php", {
+        method: "POST",
+        body: JSON.stringify({
+          storename: "valworx",
+          end_point: endpoint,
+          query_string: queryString,
+        }),
+      });
       const data = await response.json();
 
       console.log(data);
@@ -83,3 +87,4 @@ var tracePartsDownloadOptions = function (params, selectField) {
     select.addFormats(array);
   });
 };
+
