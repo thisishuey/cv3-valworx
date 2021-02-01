@@ -8,7 +8,7 @@ The industry-leading brands we manufacture and carry are known, trusted and pref
 <br />
 <b>Valworx delivers high quality product solutions and is renowned for having exceptional customer service and technical support.</b><br /><br><br>
 
- <img src="{$img_prefix}/images/uploads/pdf.png"/> <A HREF="/downloads/12280%20Valworx,%20Inc%2024Jan2019.pdf" target="new"><b>Download ISO Certificate</b></A><br> <br><br>  Certified by PRI, an ANAB-accredited registrar:<br><br><img alt="ISO 9001 Certification" src="{$img_prefix}/images/ISO9001.png"></img><img alt="Valworx ISO Certification" src="{$img_prefix}/images/PRI_ISO_9001_2015_C_-_250w.jpg"></img><img alt="ISO Certified Valve Company" src="{$img_prefix}/images/ANAB-IAF_Combined_Color_-_250w.jpg"></img>
+ <img src="{$img_prefix}/images/uploads/pdf.png"/> <A HREF="/downloads/12280_valworx_iso_certificate.pdf" target="new"><b>Download ISO Certificate</b></A><br> <br><br>  Certified by PRI, an ANAB-accredited registrar:<br><br><img alt="ISO 9001 Certification" src="{$img_prefix}/images/ISO9001.png"></img><img alt="Valworx ISO Certification" src="{$img_prefix}/images/PRI_ISO_9001_2015_C_-_250w.jpg"></img><img alt="ISO Certified Valve Company" src="{$img_prefix}/images/ANAB-IAF_Combined_Color_-_250w.jpg"></img>
 <br />
 <br />
 

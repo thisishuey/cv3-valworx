@@ -44,7 +44,8 @@ Select a link below to view specific product data sheets.
 <a href="/downloads/datasheets/valworx/57055707.pdf" target="new"><img src="{$img_prefix}/images/icon_pdf.gif"> 5705/5707 Series Electric Actuated Sanitary Ball Valves On/Off</a><br /><br />
 <a href="/downloads/datasheets/valworx/57065708.pdf" target="new"><img src="{$img_prefix}/images/icon_pdf.gif"> 5706/5708 Series Electric Actuated Sanitary Ball Valves EPS-Positioner</a><br /><br />
 <a href="/downloads/datasheets/valworx/5704.pdf" target="new"><img src="{$img_prefix}/images/icon_pdf.gif"> 5704 Series Electric Actuated Sanitary Ball Valves Multi-Voltage</a><br /><br />
-<a href="/downloads/datasheets/valworx/57025703.pdf" target="new"><img src="{$img_prefix}/images/icon_pdf.gif"> 5702/5703 Series Air Actuated Sanitary Ball Valves</a><br /><br />	
+<a href="/downloads/datasheets/valworx/57025703.pdf" target="new"><img src="{$img_prefix}/images/icon_pdf.gif"> 5702/5703 Series Pneumatic Rack & Pinion Sanitary Ball Valves</a><br /><br />	
+<a href="/downloads/datasheets/valworx/57125713.pdf" target="new"><img src="{$img_prefix}/images/icon_pdf.gif"> 5712/5713 Series Pneumatic Scotch Yoke Sanitary Ball Valves</a><br /><br />
 <a href="/downloads/datasheets/valworx/5701.pdf" target="new"><img src="{$img_prefix}/images/icon_pdf.gif"> 5701 Series Direct Mount Sanitary Ball Valves</a><br /><br />
 <br>
 <b>Sanitary 3-Way Ball Valves:</b><br/><br />
@@ -52,8 +53,9 @@ Select a link below to view specific product data sheets.
 <a href="/downloads/datasheets/valworx/57355737.pdf" target="new"><img src="{$img_prefix}/images/icon_pdf.gif"> 5735/5737 Series Electric Actuated Sanitary 3-Way Ball Valves, L-Port</a><br /><br />
 <a href="/downloads/datasheets/valworx/5724.pdf" target="new"><img src="{$img_prefix}/images/icon_pdf.gif"> 5724 Series Multi-Voltage Electric Actuated Sanitary 3-Way Ball Valves, T-Port</a><br /><br />
 <a href="/downloads/datasheets/valworx/5734.pdf" target="new"><img src="{$img_prefix}/images/icon_pdf.gif"> 5734 Series Multi-Voltage Electric Actuated Sanitary 3-Way Ball Valves, L-Port</a><br /><br />
-<a href="/downloads/datasheets/valworx/57225723.pdf" target="new"><img src="{$img_prefix}/images/icon_pdf.gif"> 5722/5723 Series Air Actuated Sanitary 3-Way Ball Valves, T-Port</a><br /><br />
-<a href="/downloads/datasheets/valworx/57325733.pdf" target="new"><img src="{$img_prefix}/images/icon_pdf.gif"> 5732/5733 Series Air Actuated Sanitary 3-Way Ball Valves, L-Port</a><br /><br />
+<a href="/downloads/datasheets/valworx/57225723.pdf" target="new"><img src="{$img_prefix}/images/icon_pdf.gif"> 5722/5723 Series Pneumatic Rack & Pinion Sanitary 3-Way Ball Valves, T-Port</a><br /><br />
+<a href="/downloads/datasheets/valworx/57325733.pdf" target="new"><img src="{$img_prefix}/images/icon_pdf.gif"> 5732/5733 Series Pneumatic Rack & Pinion Sanitary 3-Way Ball Valves, L-Port</a><br /><br />
+<a href="/downloads/datasheets/valworx/57725773.pdf" target="new"><img src="{$img_prefix}/images/icon_pdf.gif"> 5732/5733 Series Pneumatic Scotch Yoke Sanitary 3-Way Ball Valves</a><br /><br />
 <a href="/downloads/datasheets/valworx/57215731.pdf" target="new"><img src="{$img_prefix}/images/icon_pdf.gif"> 5721/5731 Series Direct Mount Sanitary 3-Way Ball Valves</a><br /><br />
 <br>
 <b>Brass Ball Valves:</b><br/><br />
@@ -110,12 +112,19 @@ Select a link below to view specific product data sheets.
 <a href="/downloads/datasheets/valworx/56445646.pdf" target="new"><img src="{$img_prefix}/images/icon_pdf.gif"> 5644/5646 Series Soft Seat Butterfly Valves, Wafer Body</a><br /><br />
 <a href="/downloads/datasheets/valworx/564556475649.pdf" target="new"><img src="{$img_prefix}/images/icon_pdf.gif"> 5645/5647/5649 Series Soft Seat Butterfly Valves, Lug Body</a><br /><br />
 <br>
+<b>High Performance Butterfly Valves:</b><br/><br />
+<a href="/downloads/datasheets/valworx/56915693.pdf" target="new"><img src="{$img_prefix}/images/icon_pdf.gif"> 5691/5693 Series Electric Actuated High Performance Butterfly Valves, On/Off Version</a><br /><br />
+<a href="/downloads/datasheets/valworx/56925694.pdf" target="new"><img src="{$img_prefix}/images/icon_pdf.gif"> 5692/5694 Series Electric Actuated High Performance Butterfly Valves, EPS Positioner</a><br /><br />
+<a href="/downloads/datasheets/valworx/56975698.pdf" target="new"><img src="{$img_prefix}/images/icon_pdf.gif"> 5697/5698 Series Pneumatic Scotch Yoke Actuated High Performance Butterfly Valves</a><br /><br />
+<a href="/downloads/datasheets/valworx/5690.pdf" target="new"><img src="{$img_prefix}/images/icon_pdf.gif"> 5690 Series High Performance Butterfly Valves</a><br /><br />
+<br>
 <b>Valve Actuators:</b><br/><br />
 <a href="/downloads/datasheets/valworx/5618.pdf" target="new"><img src="{$img_prefix}/images/icon_pdf.gif"> 5618 Series Electric Actuators</a><br /><br />
 <a href="/downloads/datasheets/valworx/5610.pdf" target="new"><img src="{$img_prefix}/images/icon_pdf.gif"> 5610/5615 Series Electric Actuators</a><br /><br />
 <a href="/downloads/datasheets/valworx/5616.pdf" target="new"><img src="{$img_prefix}/images/icon_pdf.gif"> 5616 Series Electric Actuators</a><br /><br />
 <a href="/downloads/datasheets/valworx/5617.pdf" target="new"><img src="{$img_prefix}/images/icon_pdf.gif"> 5617 Series Compact Electric Actuators</a><br /><br />
-<a href="/downloads/datasheets/valworx/53005301.pdf" target="new"><img src="{$img_prefix}/images/icon_pdf.gif"> 5300/5301 Series Pneumatic Actuators</a><br /><br />	
+<a href="/downloads/datasheets/valworx/53005301.pdf" target="new"><img src="{$img_prefix}/images/icon_pdf.gif"> 5300/5301 Series Pneumatic Rack & Pinion Actuators</a><br /><br />
+<a href="/downloads/datasheets/valworx/53205321.pdf" target="new"><img src="{$img_prefix}/images/icon_pdf.gif"> 5320/5321 Series Pneumatic Scotch Yoke Actuators</a><br /><br />	
 <br>
 <b>Electric Actuator Accessories:</b><br/><br />
 <a href="/downloads/datasheets/valworx/56105616dps.pdf" target="new"><img src="{$img_prefix}/images/icon_pdf.gif"> 5610/5615/5616 DPS Digital Positioning System - Option for 5610/5615/5616 Actuator</a><br /><br />
@@ -127,9 +136,11 @@ Select a link below to view specific product data sheets.
 <br>
 <b>Pneumatic Actuator Accessories:</b><br/><br />
 <a href="/downloads/datasheets/valworx/5291.pdf" target="new"><img src="{$img_prefix}/images/icon_pdf.gif"> 5291 Series Direct Mount Solenoid Valves</a><br /><br />
+<a href="/downloads/datasheets/valworx/588013.pdf" target="new"><img src="{$img_prefix}/images/icon_pdf.gif"> ISO Din Plug Connector w/Cable for Solenoid Valves</a><br /><br />
 <a href="/downloads/datasheets/valworx/5299ls.pdf" target="new"><img src="{$img_prefix}/images/icon_pdf.gif"> 5299LS Series Valve Position Indicators</a><br /><br />
 <a href="/downloads/datasheets/valworx/5299mls.pdf" target="new"><img src="{$img_prefix}/images/icon_pdf.gif"> 5299MLS Series Valve Position Indicators</a><br /><br />
 <a href="/downloads/datasheets/valworx/5299pp.pdf" target="new"><img src="{$img_prefix}/images/icon_pdf.gif"> 5299PP Series Valve Positioners</a><br /><br />
+<a href="/downloads/datasheets/valworx/5752.pdf" target="new"><img src="{$img_prefix}/images/icon_pdf.gif"> 5752 Series Declutchable Manual Override Gear Operator</a><br /><br />
 <br>
 <b>Valve Accessories:</b><br/><br />
 <a href="/downloads/datasheets/valworx/5800.pdf" target="new"><img src="{$img_prefix}/images/icon_pdf.gif"> 5800 Series Square Adapters</a><br /><br />

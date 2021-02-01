@@ -194,7 +194,7 @@
                 }
 
                 const tpFName = $("#tpFName").val();
-                const tpLastName = $("#tpLastName").val();
+                const tpName = $("#tpName").val();
                 const tpUserEmail = tpUserEmailCookie || $("#tpUserEmail").val();
                 const tpCompany = $("#tpCompany").val();
 
@@ -236,7 +236,7 @@
                 }, document.getElementById("cad_format"));
                 document.getElementById("section5_tab").addEventListener("click", () => {
                   document.getElementById("ifCad3d").src = `https://www.traceparts.com/els/valworx/en/api/viewer/3d?SupplierID=${tpClassificationID}&DisplayLogo=false&EnableUIMenuBottomFadeOut=false&PartNumber=${tpPartNumber}`;
-                })
+                });
               });
               function openFullScreen() {
                 const element = document.getElementById("ifCad3d");

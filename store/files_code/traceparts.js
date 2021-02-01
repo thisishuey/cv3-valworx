@@ -35,7 +35,7 @@ var TracePartsCadFormatsFieldDropDown = function (options) {
   }
 };
 
-TracePartsCadFormatsFieldDropDown.prottype.addFormats = function (
+TracePartsCadFormatsFieldDropDown.prototype.addFormats = function (
   cadFormatList
 ) {
   var options = document.createDocumentFragment();

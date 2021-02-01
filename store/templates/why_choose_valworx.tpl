@@ -23,7 +23,7 @@ You may return items for credit consideration that are like-new for 60 days.<br 
 See details of our <a href="/returns" style="text-decoration:underline" >return policy</a>.<br />
 <br /><br />
 <b style="font-size:1.25em">Trusted since 1991</b><br />
-Our customers have trusted us with their business for over 25 years.<br />
+Our customers have trusted us with their business for over 30 years.<br />
 <br />
 
 

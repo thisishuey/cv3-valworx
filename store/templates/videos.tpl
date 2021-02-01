@@ -180,8 +180,10 @@
     <div class="homegrid"><a href="/product/manual-pvc-butterfly-valve-video" title="PVC Butterfly Valves"><img src="{$img_prefix}/images/uploads/VideoThumbs/5402.png" alt="PVC Butterfly Valves" title="PVC Butterfly Valves" class="homeimage" />PVC Butterfly<br>Valves</a></div>
 
  <h2>High Performance Butterfly Valves</h2>
-    
-    <div class="homegrid"><a href="/product/high-performance-butterfly-valves-video" title="High Performance Butterfly Valves"><img src="{$img_prefix}/images/uploads/VideoThumbs/5690.png" alt="High Performance Butterfly Valves" title="High Performance Butterfly Valves" class="homeimage" />High Performance<br>Butterfly<br>Valves</a></div>
+
+<div class="homegrid"><a href="/product/air-actuated-high-performance-butterfly-valves-video" title="Air Actuated High Performance Butterfly Valves"><img src="{$img_prefix}/images/uploads/VideoThumbs/5697_5698.png" alt="Air Actuated High Performance Butterfly Valves" title="Air Actuated High Performance Butterfly Valves" class="homeimage" />Air Actuated<br>High Performance<br>Butterfly<br>Valves</a></div>
+
+<div class="homegrid"><a href="/product/high-performance-butterfly-valves-video" title="High Performance Butterfly Valves"><img src="{$img_prefix}/images/uploads/VideoThumbs/5690.png" alt="High Performance Butterfly Valves" title="High Performance Butterfly Valves" class="homeimage" />High Performance<br>Butterfly<br>Valves</a></div>
 
  <h2>Butterfly Valves Wafer Style</h2>
     
